@@ -1,0 +1,102 @@
+  <html>
+   <title> SSLC Mentor </title>
+   <head>
+  <style type="text/css">
+
+			hr {color:sienna}
+			p {margin-left:20px}
+			body {font-family:"Calibri",Georgia, Serif}
+			</style>
+
+		  <h2></h2>
+   <script type="text/javascript">
+
+	 var  arr       = new Array;
+ 	 arr[0]        = new Object ();
+	 arr[0].str    = "Name the two components of biogeochemical cycles. Write their differences. ";
+	 arr[0].ans    = "<BR>A. The two main components are <BR>a. Reservoir pool and <BR>b. Exchange pool. <BR><BR>a. Reservoir pool:<BR>I. It is the part of the cycle where movement of chemical substances is very slow and involves non-living components <BR>II. It is represented by atmosphere, hydrosphere and lithosphere <BR><BR>b. Exchange pool: <BR>I. It is the part of the cycle where the movement of chemical substances is very rapid and involves living organisms of biosphere <BR>ii. It is represented by bacteria, fungi, plants and animals. <BR>";
+
+	 arr[1]        = new Object ();
+	 arr[1].str    = "What is meant by nitrogen fixation? Name its two types. ";
+	 arr[1].ans    = " <BR>A. The process of converting free gaseous nitrogen of the atmosphere into useful compound form of nitrogen is called nitrogen fixation. Its two ways are <BR>i.  Natural fixation <BR>ii. Artificial fixation  ";
+
+	 arr[2]        = new Object ();
+	 arr[2].str    = "Name the two types of natural fixation of oxygen.  ";
+	 arr[2].ans    = "<BR>A. The two types are <BR>a. Biological Nitrogen fixation <BR>b. Electro-chemical fixation  ";
+
+	 arr[3]        = new Object ();
+	 arr[3].str    = "What is meant by Biological nitrogen fixation? Name the organisms involved.";
+	 arr[3].ans    = "<BR>A. The process which involves fixation of molecular nitrogen directly by certain organisms is called biological nitrogen fixation. The organisms involved are bacteria, blue green algae and leguminous plants.  ";
+
+	 arr[4]        = new Object ();
+	 arr[4].str    = "Describe briefly the carbon cycle.  ";
+	 arr[4].ans    = "<BR>A. Atmospheric carbon dioxide serves as the source of carbon for green plants for the synthesis organic compounds (sugars). Through the food chain, the organic compounds manufactured by plants provide the source of carbon for animals - carbon is passed on from plants to herbivores and from herbivores to carnivores. Carbon dioxide returned from exchange pool to the reservoir pool by way of respiration, by decomposition activity of bacteria and fungi, by occasional volcanic eruptions and by combustion activities. <BR>";
+
+	 arr[5]        = new Object ();
+	 arr[5].str    = "Mention the two types of biogeochemical cycles and write their differences.";
+	 arr[5].ans    = "<BR>A. The two types are <BR>i. Gaseous cycles and <BR>ii. Sedimentary cycles <BR>i. Gaseous cycles: <BR>a. In these cycles, the reservoir pool is most often the atmosphere or hydrosphere and the movement of chemicals are in the form of gases <BR>b. Generally they are described as perfect cycles. E.g, carbon cycle, nitrogen cycle Sedimentary cycles: <BR>a. In these cycles, the reservoir pool will be generally the lithosphere and the movement of chemicals is in the form of sediments (solids) b. Generally they are described as imperfect cycles. <BR>E.g sulphur cycle, phosphorous cycle, <BR>";
+
+function showButton()
+{
+	var elem = 1;  
+	for ( i=0; i < 6; i++ ){ 
+			elem = "disppara"+i; 
+			var textbox = document.getElementById (elem); 
+			if ( textbox.style.visibility == 'hidden' ) { 
+				textbox.style.visibility='visible'; 
+				textbox.innerHTML= arr[i].ans; 
+			} else { 
+				textbox.style.visibility='hidden'; 
+		}
+	}
+}
+
+
+
+
+
+	</script>
+ 	</head> 
+	<body bgcolor="Silver"  >
+
+
+	<form name="vote" id="vote"> <BR>
+<input type="button" value="Hide/Unhide Answers" onclick="showButton()" /> 
+	<input type="button" id="print_page" name="print_page" value="Print" onclick="parent.frames[0].focus();parent.frames[0].print()" /> 
+ 	</form> 
+ 	<p><fieldset> 
+	<p id=question0>  <b> Q1:  Name the two components of biogeochemical cycles. Write their differences. </b>
+	<p id=disppara0>   Ans:      <BR>A. The two main components are <BR>a. Reservoir pool and <BR>b. Exchange pool. <BR><BR>a. Reservoir pool:<BR>I. It is the part of the cycle where movement of chemical substances is very slow and involves non-living components <BR>II. It is represented by atmosphere, hydrosphere and lithosphere <BR><BR>b. Exchange pool: <BR>I. It is the part of the cycle where the movement of chemical substances is very rapid and involves living organisms of biosphere <BR>ii. It is represented by bacteria, fungi, plants and animals. <BR>;
+	<p></fieldset> 
+
+	<p><fieldset> 
+	<p id=question1>  <b> Q2:  What is meant by nitrogen fixation? Name its two types. </b>
+	<p id=disppara1>   Ans:       <BR>A. The process of converting free gaseous nitrogen of the atmosphere into useful compound form of nitrogen is called nitrogen fixation. Its two ways are <BR>i.  Natural fixation <BR>ii. Artificial fixation  ;
+	<p></fieldset> 
+
+	<p><fieldset> 
+	<p id=question2>  <b> Q3:  Name the two types of natural fixation of oxygen.  </b>
+	<p id=disppara2>   Ans:      <BR>A. The two types are <BR>a. Biological Nitrogen fixation <BR>b. Electro-chemical fixation  ;
+	<p></fieldset> 
+
+	<p><fieldset> 
+	<p id=question3>  <b> Q4:  What is meant by Biological nitrogen fixation? Name the organisms involved.</b>
+	<p id=disppara3>   Ans:      <BR>A. The process which involves fixation of molecular nitrogen directly by certain organisms is called biological nitrogen fixation. The organisms involved are bacteria, blue green algae and leguminous plants.  ;
+	<p></fieldset> 
+
+	<p><fieldset> 
+	<p id=question4>  <b> Q5:  Describe briefly the carbon cycle.  </b>
+	<p id=disppara4>   Ans:      <BR>A. Atmospheric carbon dioxide serves as the source of carbon for green plants for the synthesis organic compounds (sugars). Through the food chain, the organic compounds manufactured by plants provide the source of carbon for animals - carbon is passed on from plants to herbivores and from herbivores to carnivores. Carbon dioxide returned from exchange pool to the reservoir pool by way of respiration, by decomposition activity of bacteria and fungi, by occasional volcanic eruptions and by combustion activities. <BR>;
+	<p></fieldset> 
+
+	<p><fieldset> 
+	<p id=question5>  <b> Q6:  Mention the two types of biogeochemical cycles and write their differences.</b>
+	<p id=disppara5>   Ans:      <BR>A. The two types are <BR>i. Gaseous cycles and <BR>ii. Sedimentary cycles <BR>i. Gaseous cycles: <BR>a. In these cycles, the reservoir pool is most often the atmosphere or hydrosphere and the movement of chemicals are in the form of gases <BR>b. Generally they are described as perfect cycles. E.g, carbon cycle, nitrogen cycle Sedimentary cycles: <BR>a. In these cycles, the reservoir pool will be generally the lithosphere and the movement of chemicals is in the form of sediments (solids) b. Generally they are described as imperfect cycles. <BR>E.g sulphur cycle, phosphorous cycle, <BR>;
+	<p></fieldset> 
+
+
+<BR>
+	</form> 
+ </body>
+ </html>
+ 

@@ -1,0 +1,68 @@
+
+
+<html>
+
+<head>
+	<script type="text/javascript">
+
+	function popitup2() {
+	newwindow2=window.open('','name','height=200,width=150');
+	var tmp = newwindow2.document;
+	tmp.write('<html><head><title>popup</title>');
+	tmp.write('<link rel="stylesheet" href="js.css">');
+	tmp.write('</head><body><p>this is once again a popup.</p>');
+	tmp.write('<p><a href="javascript:alert(self.location.href)">view location</a>.</p>');
+	tmp.write('<p><a href="javascript:self.close()">close</a> the popup.</p>');
+	tmp.write('</body></html>');
+	tmp.close();
+	}
+
+
+	function popitup3() {
+	alert ( "in the 3");
+	newwindow2=window.open('','name','height=200,width=150');
+	var tmp = newwindow2.document;
+	tmp.write('<html><head><title>popup</title>');
+	tmp.write('<link rel="stylesheet" href="js.css">');
+	tmp.write('</head><body><p>this is once again a popup.</p>');
+	tmp.write('<p><a href="javascript:self.close()">close</a> the popup.</p>');
+	tmp.write('</body></html>');
+	tmp.close();
+
+	}
+
+
+		function show(rowid, arrno) {
+			alert("hello world     \n\n    hello world");
+			
+		
+	
+
+			//window.open ("http://www.yahoo.com", "somename");
+
+     return false;
+   }
+var newwindow;
+function poptastic(url)
+{
+	newwindow=window.open(url,'name','height=400,width=200');
+	if (window.focus) {newwindow.focus()}
+}
+ </script>
+</head>
+
+
+
+	</script>
+
+
+	<body>
+			<input type="button"  value="some"        onClick="return show();" >
+			<input type="button"  value="popitup2"    onClick="return popitup2();" >
+			<input type="button"  value="popitup3"    onClick="return popitup3();" >
+			<a href="javascript:poptastic('poppedexample.html');">Pop it</a>
+	</body>
+								
+
+
+</html>

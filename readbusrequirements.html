@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META name="GENERATOR" content="IBM Software Development Platform">
+<META http-equiv="Content-Style-Type" content="text/css">
+<LINK href="theme/Master.css" rel="stylesheet"
+	type="text/css">
+<TITLE>BusinessRequirementsText.html</TITLE>
+ 
+<SCRIPT LANGUAGE="JavaScript">
+// Below function will  
+function init(){
+
+	alert ("1");
+	var xmlDoc=new ActiveXObject("MSXML.DOMDocument");
+	alert ("after");
+	xmlDoc.async="false";
+
+
+	xmlDoc.load("BusinessRequirements.xml");
+
+	var rootNode=xmlDoc.documentElement;
+   
+ // we have Hard codded the value because we know that the "BusinessRequirements" tag is in child 1
+
+	//alert ("before rootnode"+rootNode.childNodes[0].nodeValue);
+	var nodes=rootNode.childNodes(0);
+	
+ 	var i=0;
+ 	for(  i=0; i<nodes.childNodes.length; i++){
+	 
+	 //alert(nodes.childNodes(i).tagName);
+		 if(nodes.childNodes(i).tagName=="my:DetailedRequirements"){ // should point to 1st level node
+			 nodes=nodes.childNodes(i);
+			 document.write('<table border="1" width="95%"> <tr align="center" bgcolor="#e8e8e8"><td><b>Business Requirements</b></tr></td> ');
+			 getNodeXML(nodes);
+			 document.write('</table> ');
+			 break;	
+		 } 
+   }// For loop ends
+	
+} // Function ends
+
+
+// Recursive function
+function getNodeXML(tree){ 
+
+ 	if(tree.hasChildNodes()) {
+		 
+		for(var i=0; i<tree.childNodes.length; i++){
+			getNodeXML(tree.childNodes(i));
+	   }
+	}else{
+//	alert(  tree.nodeType+ "----------"+ tree.text);
+    	if(tree.nodeType==3){
+	    	document.write('<tr><td>'+tree.text+'</tr></td>'); 
+		}
+	}
+ }// recursive function ends 
+ 
+  </SCRIPT>
+</HEAD>
+<BODY onload="init()">
+
+
+this is the real data.
+
+</BODY>
+</HTML>

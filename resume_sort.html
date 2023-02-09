@@ -1,0 +1,51 @@
+<html>
+
+
+	<body>
+
+	<h>	Sort based on the following :  </h>
+	<form name="resume_sort" action="resume_sort.php" method="POST" >
+
+	<br>
+
+		<select name="sort_field">
+			<option value="candidate_name">  Candidate Name  </option>
+			<option value="recruiter_name">  Recruiter Name  </option>
+			<option value="category"> Category </option>
+			<option value="date_rcvd"> Date Resume Received </option>
+			<option value="pr_intrvwr"> Primary Interviewer </option>
+			<option value="pr_intrvwr_date"> Primary Interviewer Date </option>
+			<option value="resume_title"> Resume Title  </option>
+			<option value="c_phone"> Candidate's Phone Number  </option>
+			<option value="r_phone"> Recruiter's Phone Number  </option>
+		</select>
+	
+		<br>
+	
+		OR
+	
+		<br>
+	
+		<select name="resume_status" >
+			<option value="nil"> NIL </option>
+			<option value="Accept"> Accept </option>
+			<option value="Reject"> Reject </option>
+			<option value="OnHold"> OnHold </option>
+			<option value="Second Opinion"> Second Opinion </option>
+		</select>
+	
+	
+		<br>
+		<br>
+		<br>
+		
+		<input type="submit" name="submit" value="Submit">
+
+	</form>
+	
+
+
+	<br>
+
+	</body>
+</html>

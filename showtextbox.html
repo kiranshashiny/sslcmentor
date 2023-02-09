@@ -1,0 +1,38 @@
+<html>
+
+<head>
+
+<script type='text/javascript' >
+
+	function showButton() 
+	{
+		var textbox = document.getElementById ("disppara");
+		
+		if ( textbox.style.visibility == 'hidden' ) {
+
+			// alert ("this is hidden, changing to visible");
+			textbox.style.visibility='visible';
+
+			textbox.innerHTML="New Answer";
+
+		} else {
+			//alert ("this is visible, changing to block");
+
+			textbox.style.visibility='hidden';
+
+		}
+	}
+
+</script>
+
+</head>
+
+
+	<input type="button" value="Toggle Answers" onclick="showButton()" />
+
+	<input  type="textfield" width="30" id="answer_id" name="optional_text" style="display:none" value="Default Answer" />
+
+	<p id="question"> Question </p>
+	<p id="disppara"> Answer  </p>
+	
+</html>

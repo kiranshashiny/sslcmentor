@@ -1,0 +1,46 @@
+#navigation { 
+
+position: absolute; 
+
+width: 210px; 
+
+height: 600px; 
+
+margin: 0; 
+
+margin-top: 50px; 
+
+border-right: 1px solid #C6EC8C; 
+
+font-weight: normal; 
+
+} 
+
+#navigation2 { 
+
+
+width: 210px; 
+
+height: 600px; 
+
+margin: 20; 
+
+margin-top: 50px; 
+
+border-right: 1px solid #C6EC8C; 
+
+font-weight: normal; 
+
+}
+
+#centerDoc { 
+
+position: absolute; 
+
+padding: 0 0 20px 0; /*top right bottom left*/ 
+
+margin-top: 50px; 
+
+margin-left: 235px; 
+
+} 

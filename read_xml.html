@@ -1,0 +1,70 @@
+<html>
+
+<body>
+<h1>W3Schools Internal Note</h1>
+<p><b>Report Name:</b> <span id="ReportName"></span><br />
+<p><b>SubmittedTime :</b> <span id="SubmittedTime"></span><br />
+<p><b>PlatformName :</b> <span id="PlatformName"></span><br />
+<p><b>EndpointCount :</b> <span id="EndpointCount"></span><br />
+<p><b>TargetName :</b> <span id="TargetName"></span><br />
+<p><b>First Target :</b> <span id="FirstTarget"></span><br />
+<p><b>Second Target :</b> <span id="SecondTarget"></span><br />
+<p><b>Third Target :</b> <span id="ThirdTarget"></span><br />
+<p><b>End Point Count :</b> <span id="EndPointCount"></span><br />
+
+
+
+
+<script type="text/javascript">
+
+
+if (window.XMLHttpRequest)
+  {
+  
+  }
+else
+  {
+  xhttp=new ActiveXObject("Microsoft.XMLHTTP")
+  xhttp.async = "false";
+  xhttp.onreadystatechange = verify;
+
+  }
+
+
+xhttp.open("GET","UnixServers.xml",false);
+xhttp.send("");
+xmlDoc=xhttp.responseXML;
+
+
+
+document.getElementById("ReportName").innerHTML=xmlDoc.getElementsByTagName("ReportName")[0].childNodes[0].nodeValue;
+document.getElementById("SubmittedTime").innerHTML=xmlDoc.getElementsByTagName("SubmittedTime")[0].childNodes[0].nodeValue;
+document.getElementById("PlatformName").innerHTML=xmlDoc.getElementsByTagName("PlatformName")[0].childNodes[0].nodeValue;
+document.getElementById("EndpointCount").innerHTML=xmlDoc.getElementsByTagName("EndpointCount")[0].childNodes[0].nodeValue;
+
+e_p_count=xmlDoc.getElementsByTagName("EndpointCount")[0].childNodes[0].nodeValue;
+
+
+<!-- listing all the targets 
+
+for ( i=0; i< e_p_count; i++ ) {
+
+	target_name =  xmlDoc.getElementsByTagName("TargetName")[i].childNodes[0].nodeValue);
+	document.writeln ( xmlDoc.getElementsByTagName("TargetName")[i].childNodes[0].nodeValue);
+
+	
+
+}
+-->
+
+document.getElementById("Target<Name").innerHTML=xmlDoc.getElementsByTagName("TargetName")[0].childNodes[0].nodeValue; 
+document.getElementById("FirstTarget").innerHTML=xmlDoc.getElementsByTagName("TargetName")[1].childNodes[0].nodeValue;
+document.getElementById("SecondTarget").innerHTML=xmlDoc.getElementsByTagName("TargetName")[2].childNodes[0].nodeValue;
+document.getElementById("ThirdTarget").innerHTML=xmlDoc.getElementsByTagName("TargetName")[3].childNodes[0].nodeValue;
+
+
+
+</script>
+
+</body>
+</html>

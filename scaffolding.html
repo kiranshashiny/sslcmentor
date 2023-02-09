@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<title>CakePHP Manual</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="/css/cake.basic.css" media="all" /><link rel="stylesheet" type="text/css" href="/css/cake.manual.css" media="all" /><link rel="stylesheet" type="text/css" href="/css/donation_buttons.css" media="all" />
+</head>
+<body class="manual">
+  <div id="container">
+		<div id="content">
+			
+		    <div id="page_top">				
+          		<h2>The Manual</h2>
+				 
+<div id="page">
+
+<!-- $Id: scaffolding.xml 160 2007-09-18 17:41:24Z psychic $ -->
+
+  <h3>Scaffolding</h3><div style="padding-left: 14px;">
+
+  <h4>Section 1</h4><div class="text">
+    <h3>Cake's Scaffolding is Pretty Cool</h3>
+
+    <p>So cool that you'll want to use it in production apps. Now, we think
+    its cool, too, but please realize that scaffolding is... well... just
+    scaffolding. It's a bunch of stuff you throw up real quick during the
+    beginning of a project in order to get started. It isn't meant to be
+    completely flexible. So, if you find yourself really wanting to customize
+    your logic and your views, its time to pull your scaffolding down in order
+    to write some code.</p>
+
+    <p>Scaffolding is a great way of getting the early parts of developing
+    a web application started. Early database schemas are volatile and subject
+    to change, which is perfectly normal in the early part of the design
+    process. This has a downside: a web developer hates creating forms that
+    never will see real use. To reduce the strain on the developer,
+    scaffolding has been included in Cake. Scaffolding analyzes your database
+    tables and creates standard lists with add, delete and edit buttons,
+    standard forms for editing and standard views for inspecting a single item
+    in the database. To add scaffolding to your application, in the
+    controller, add the <strong>$scaffold</strong> variable:</p>
+
+    <div style="font-family: monospace;">&lt;?php<br />
+class CategoriesController extends AppController<br />
+{<br />
+&nbsp; &nbsp; var $scaffold;<br />
+}<br />
+?&gt;</div>
+
+    <p>One important thing to note about scaffold: it expects that any
+    field name that ends with <strong>_id</strong> is a foreign key to a
+    table which has a name that precedes the underscore. So, for example, if
+    you have nested categories, you'd probably have a column called
+    <strong>category_id</strong> in your categories table.</p>
+
+    <p>Also, when you have a foreign key in a table (e.g. titles table has
+    <strong>category_id</strong>), and you have associated your models
+    appropriately (see Understanding Associations, 6.2), a select box will be
+    automatically populated with the rows from the foreign table (titles) in
+    the show/edit/new views. To set which field in the foreign table is shown,
+    set the <strong>$displayField</strong> variable in the foreign model.
+    To continue our example of a category having a title:</p>
+
+    <div style="font-family: monospace;">&lt;?php<br />
+class Title extends AppModel<br />
+{<br />
+&nbsp; &nbsp; var $name = 'Title';<br />
+<br />
+&nbsp; &nbsp; var $displayField = 'title';<br />
+}<br />
+?&gt;</div>
+  </div>
+
+  <h4>Section 2</h4><div class="text">
+    <h3>Customizing Scaffold Views</h3>
+
+    <p>If you're looking for something a little different in your
+    scaffolded views, you can create them yourself. We still don't recommend
+    using this technique for production applications, but such a customization
+    may be extremely useful for prototyping iterations.</p>
+
+    <p>If you'd like to change your scaffolding views, you'll need to
+    supply your own:</p>
+
+    <span>
+      <h3>Custom Scaffolding Views for a Single Controller</h3>
+
+      <pre>Custom scaffolding views for a PostsController should be placed like so:
+
+/app/views/posts/scaffold/scaffold.index.thtml
+/app/views/posts/scaffold/scaffold.show.thtml
+/app/views/posts/scaffold/scaffold.edit.thtml
+/app/views/posts/scaffold/scaffold.new.thtml
+</pre>
+    </span>
+
+    <span>
+      <h3>Custom Scaffolding Views for an Entire Application</h3>
+
+      <pre>Custom scaffolding views for all controllers should be placed like so:
+
+/app/views/scaffold/scaffold.index.thtml
+/app/views/scaffold/scaffold.show.thtml
+/app/views/scaffold/scaffold.edit.thtml
+/app/views/scaffold/scaffold.new.thtml
+</pre>
+    </span>
+
+    <p>If you find yourself wanting to change the controller logic at this
+    point, it's time to take the scaffolding down from your application and
+    start building it.</p>
+
+    <p>One feature you might find helpful is Cake's code generator: Bake.
+    Bake allows you to generate a coded version of scaffolded code you can
+    then move on to modify and customize as your application requires.</p>
+  </div>
+</div></div>
+<div class="print-button">
+	<a href="/printing/chapter/scaffolding"  target="_print">print chapter</a> </div>
+
+
+
+	
+<div id="foot"><div class="next-prev"><div class="prev"><a href="/chapter/configuration">&laquo;&laquo; Configuration</a></div><div class="next"><a href="/chapter/models">Models &raquo;&raquo;</a></div></div></div>						
+		</div> <!-- #content -->
+		
+        	<div id="side">
+	          <div id="toc">
+	            <h2>Table of Contents</h2>
+<ul>
+<li><a href="/" >Preface</a></li><li><a href="/chapter/intro" >Introduction to CakePHP</a></li><li><a href="/chapter/basic_concepts" >Basic Concepts</a></li><li><a href="/chapter/installing" >Installing CakePHP</a></li><li><a href="/chapter/configuration" >Configuration</a></li><li><a href="/chapter/scaffolding" >Scaffolding</a></li><li><a href="/chapter/models" >Models</a></li><li><a href="/chapter/controllers" >Controllers</a></li><li><a href="/chapter/views" >Views</a></li><li><a href="/chapter/components" >Components</a></li><li><a href="/chapter/helpers" >Helpers</a></li><li><a href="/chapter/constants" >Cake&#039;s Global Constants And Functions</a></li><li><a href="/chapter/validation" >Data Validation</a></li><li><a href="/chapter/plugins" >Plugins</a></li><li><a href="/chapter/acl" >Access Control Lists</a></li><li><a href="/chapter/sanitize" >Data Sanitization</a></li><li><a href="/chapter/session" >The Cake Session Component</a></li><li><a href="/chapter/request_handler" >The Request Handler Component</a></li><li><a href="/chapter/security" >The Security Component</a></li><li><a href="/chapter/view_cache" >View Caching</a></li><li><a href="/appendix/blog_tutorial" >The Cake Blog Tutorial</a></li><li><a href="/appendix/simple_user_auth" >Example: Simple User Authentication</a></li><li><a href="/appendix/conventions" >Cake Conventions</a></li></ul>  
+	          </div>  
+				
+			<div id="donation-nav-vert">
+	<ul>
+		<li class="donate-100">
+			<form name="donate100" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick" />
+				<a href="#" onclick="document.forms['donate100'].submit()"><img src="/img/donate/cake100donate.png" border="0" alt="Donate $100" /></a>
+				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" />
+			</form>
+		</li>
+		
+		<li class="donate-50">
+			<form name="donate50" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick" />
+				<a href="#" onclick="document.forms['donate50'].submit()"><img src="/img/donate/cake50donate.png" border="0" alt="Donate $50" /></a>
+				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" />
+			</form>
+		</li>
+		
+		<li class="donate-25">
+			<form name="donate25" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick" />
+				<a href="#" onclick="document.forms['donate25'].submit()"><img src="/img/donate/cake25donate.png" border="0" alt="Donate $25" /></a>
+				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" />
+			</form>
+		</li>
+		
+		<li class="donate-10">
+			<form name="donate10" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick" />
+				<a href="#" onclick="document.forms['donate10'].submit()"><img src="/img/donate/cake10donate.png" border="0" alt="Donate $10" /></a>
+				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" />
+			</form>
+		</li>
+		
+		<li class="donate-5">
+			<form name="donate5" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick" />
+				<a href="#" onclick="document.forms['donate5'].submit()"><img src="/img/donate/cake5donate.png" border="0" alt="Donate $5" /></a>
+				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" />
+			</form>
+		</li>
+
+		<li class="donate-1">
+			<form name="donate1" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick" />
+				<a href="#" onclick="document.forms['donate1'].submit()"><img src="/img/donate/cake1donate.png" border="0" alt="Donate $1" /></a>
+				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" />
+			</form>
+		</li>
+		
+		<li class="donate-any-amount">
+			<form name="donateAnyAmount" action="https://www.paypal.com/cgi-bin/webscr" method="post">
+				<input type="hidden" name="cmd" value="_s-xclick" />
+				<a href="#" onclick="document.forms['donateAnyAmount'].submit()"><img src="/img/donate/cakeAnydonate.png" border="0" alt="Donate Any Amount" /></a>
+				<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+				<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" />
+			</form>
+		</li>
+	</ul>
+</div>
+			
+	    </div> <!-- /side --> 
+	
+	
+     
+		<div id="footer">     
+       	    <p>
+       		    &copy; 2006 Cake Software Foundation
+       		</p>
+		     <a href="http://jigsaw.w3.org/css-validator/check/referer">
+          	    <img src="/img/w3c_css.png" alt="valid css" border="0" />          	 </a>
+          	 <a href="http://validator.w3.org/check?uri=referer">
+           	    <img src="/img/w3c_xhtml10.png" alt="valid xhtml" border="0" />           	 </a>
+               <a href="http://www.cakephp.org/">
+         		    <img src="/img/cake.power.png" alt="CakePHP : Rapid Development Framework" border="0" />         	    </a>
+           </div>
+	</div> <!-- #container -->
+</body>
+</html>

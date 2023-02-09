@@ -1,0 +1,145 @@
+<html>
+
+<head>
+
+<script language="javascript">
+
+y = 8;
+var myres = new Array;
+
+init (y);
+calc_random();
+
+
+function calc_answer ( y ) 
+{
+
+	this.y = y;
+	this.rnd = Math.floor ( Math.random () * 11) + 1;
+	this.x = this.y - this.rnd;
+}
+
+
+function init (y) 
+{
+
+	for ( i =0; i<10; i++ ) {
+	    myres[i] = new calc_answer(y);
+	}
+
+}
+
+function calc_random () {
+
+	var seed_val = seed.value;
+
+        init(seed_val);
+
+	rnd_val0.value = myres[0].rnd;
+	rnd_val1.value = myres[1].rnd;
+	rnd_val2.value = myres[2].rnd;
+	rnd_val3.value = myres[3].rnd;
+	rnd_val4.value = myres[4].rnd;
+	rnd_val5.value = myres[5].rnd;
+	rnd_val6.value = myres[6].rnd;
+	rnd_val7.value = myres[7].rnd;
+	rnd_val8.value = myres[8].rnd;
+	rnd_val9.value = myres[9].rnd;
+
+	answer0.value = "Hidden";
+	answer1.value = "Hidden";
+	answer2.value = "Hidden";
+	answer3.value = "Hidden";
+	answer4.value = "Hidden";
+	answer5.value = "Hidden";
+	answer6.value = "Hidden";
+	answer7.value = "Hidden";
+	answer8.value = "Hidden";
+	answer9.value = "Hidden";
+
+}
+
+function show_answer () {
+	answer0.value = myres[0].x;
+	answer1.value = myres[1].x;
+	answer2.value = myres[2].x;
+	answer3.value = myres[3].x;
+	answer4.value = myres[4].x;
+	answer5.value = myres[5].x;
+	answer6.value = myres[6].x;
+	answer7.value = myres[7].x;
+	answer8.value = myres[8].x;
+	answer9.value = myres[9].x;
+
+}
+
+function doesThisWork () {
+	alert ("this works");
+
+}
+
+
+</script>
+
+</head>
+
+
+
+
+
+<body>
+
+
+<h1>Simple Equations</h1>
+If Y = <input type="text"  size="4"   maxLength="4"   id="seed" value="8" onChange="calc_random()" >  <br>
+
+Calculate the value of x  <br>
+
+x + <input type="text"  width="5"   id="rnd_val0" > =  y ,  
+
+     Answer : <input type="text" width="5"   id="answer0"  > <br> <br>
+
+x + <input type="text"  width="5"   id="rnd_val1" > =  y ,  
+
+     Answer : <input type="text" width="5"   id="answer1"  > <br> <br>
+
+x + <input type="text"  width="5"   id="rnd_val2" > =  y ,  
+
+     Answer : <input type="text" width="5"   id="answer2"  > <br> <br>
+
+x + <input type="text"  width="5"   id="rnd_val3" > =  y ,  
+
+     Answer : <input type="text" width="5"   id="answer3"  > <br> <br>
+
+x + <input type="text"  width="5"   id="rnd_val4" > =  y ,  
+
+     Answer : <input type="text" width="5"   id="answer4"  > <br> <br>
+
+x + <input type="text"  width="5"   id="rnd_val5" > =  y ,  
+
+     Answer : <input type="text" width="5"   id="answer5"  > <br> <br>
+
+x + <input type="text"  width="5"   id="rnd_val6" > =  y ,  
+
+     Answer : <input type="text" width="5"   id="answer6"  > <br> <br>
+
+x + <input type="text"  width="5"   id="rnd_val7" > =  y ,  
+
+     Answer : <input type="text" width="5"   id="answer7"  > <br> <br>
+
+x + <input type="text"  width="5"   id="rnd_val8" > =  y ,  
+
+     Answer : <input type="text" width="5"   id="answer8"  > <br> <br>
+
+x + <input type="text"  width="5"   id="rnd_val9" > =  y ,  
+
+     Answer : <input type="text" width="5"   id="answer9"  > <br> <br>
+
+
+ 
+<input type="button" value="Calc Random" onClick="calc_random()">
+<input type="button" value="Show Answer" onClick="show_answer()">
+
+
+
+</body>

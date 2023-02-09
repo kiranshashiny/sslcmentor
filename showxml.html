@@ -1,0 +1,43 @@
+<html>
+
+<script type="text/javascript">
+
+function  next(){
+	
+		alert (" In the next ");
+	
+		var x = document.getElementById("question");
+
+		alert ( x );
+
+		x.innerHTML ="new question";
+
+		
+}
+
+function showcontents () {
+
+
+	
+
+}
+
+
+</script>
+
+<body onload="showcontents()">
+
+
+	<div id="question"  value="question"> 	 </div>
+
+	<br>
+
+	<input type="button" text="Show answer" value="show answer"/>
+
+
+	<input type="button" text="Next" value="Next" onClick="next()" />
+
+
+</body>
+
+</html>
