@@ -1,0 +1,15 @@
+<html>
+
+<head>
+
+
+</head>
+
+
+
+<frameset cols="15%,85%",  frameborder ="1">
+	<frame src="med_leftside.html"  >
+	<frame src="med_rightside.html" >
+</frameset>
+
+</html>

@@ -1,0 +1,174 @@
+<HTML>
+<HEAD>
+<TITLE>MyHomePage.com</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+body,td,p{
+margin:0;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+color:#ff7d40;
+}
+.hdr1{
+font-family:Arial, Helvetica, sans-serif;
+font-weight:bold;
+font-size:16px;
+color:#5e2601
+padding-top:0px;
+padding-bottom:0px;
+
+
+}
+.date{
+color:#ff7d40;
+}
+.baselink{
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-weight:normal;
+font-size:10px;
+color:#5e2601;
+}
+.headertd{
+padding-left:14px;
+padding-right:20px;
+color:#FFFFFF
+}
+.contenttd{
+padding-left:14px;
+padding-right:20px;
+padding-top:13px;
+padding-bottom:20px;
+color:#5e2601
+}
+
+
+-->
+</style>
+</HEAD>
+
+
+
+<BODY BGCOLOR=#603311>
+<TABLE WIDTH=775 height="100%" BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+	<TR>
+		<TD height="29" colspan="2" background="images/coffee_01_bg_031106.jpg"><TABLE BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+          <TR>
+
+            <TD> <IMG SRC="images/topnav_bg.gif" WIDTH=12 HEIGHT=29 ALT=""></TD>
+
+            <TD> <a href="coffee_home.html"><IMG SRC="images/btn_home.gif" ALT="" WIDTH=53 HEIGHT=29 border="0"></a></TD>
+
+            <TD> <a href="coffee_about.html"><IMG SRC="images/btn_about.gif" ALT="" WIDTH=54 HEIGHT=29 border="0"></a></TD>
+
+            <TD> <a href="coffee_news.html"><IMG SRC="images/btn_news.gif" ALT="" WIDTH=50 HEIGHT=29 border="0"></a></TD>
+
+            <TD> <a href="coffee_search.html"><IMG SRC="images/btn_search.gif" ALT="" WIDTH=59 HEIGHT=29 border="0"></a></TD>
+
+            <TD COLSPAN=2> <a href="coffee_contact.html"><IMG SRC="images/btn_contactus.gif" ALT="" WIDTH=80 HEIGHT=29 border="0"></a></TD>
+
+            <TD> <a href="coffee_products.html"><IMG SRC="images/btn_products.gif" ALT="" WIDTH=71 HEIGHT=29 border="0"></a></TD>
+
+            <TD> <IMG SRC="images/spacer.gif" WIDTH=162 HEIGHT=29 ALT=""></TD>
+            <TD> <IMG SRC="images/toppic1.gif" WIDTH=234 HEIGHT=29 ALT=""></TD>
+          </TR>
+        </TABLE></TD>
+	</TR>
+	<TR>
+	  <TD height="126" COLSPAN=2><TABLE WIDTH=775 BORDER=0 align="center" CELLPADDING=0 CELLSPACING=0>
+        <TR>
+          <TD> <a href="http://www.myfreetemplates.com"><IMG SRC="images/coffee2.jpg" ALT="" WIDTH=129 HEIGHT=127 border="0"></a></TD>
+          <TD> <IMG SRC="images/coffee2.jpg" WIDTH=130 HEIGHT=127 ALT=""></TD>
+          <TD> <IMG SRC="images/coffee2.jpg" WIDTH=130 HEIGHT=127 ALT=""></TD>
+          <TD> <IMG SRC="images/coffee2.jpg" WIDTH=130 HEIGHT=127 ALT=""></TD>
+          <TD> <IMG SRC="images/coffee2.jpg" WIDTH=130 HEIGHT=127 ALT=""></TD>
+          <TD> <IMG SRC="images/coffee2.jpg" WIDTH=130 HEIGHT=127 ALT=""></TD>
+        </TR>
+      </TABLE></TD>
+  </TR>
+	<TR>
+		<TD width="256" height="16" BGCOLOR=#FF7800>
+			<IMG SRC="images/coffee2.jpg" WIDTH=123 HEIGHT=16 ALT=""></TD>
+		<TD WIDTH=519 HEIGHT=16 align="right" BGCOLOR=#FF7800 class="headertd"><span class="date">Date here dd/mm/yy</span></TD>
+	</TR>
+	<TR valign="middle">
+
+		<TD WIDTH=256 HEIGHT=35 BGCOLOR=#603311 class="headertd"><span style="sideheader font-weight: bold; font-weight: bold;">Latest News</span></TD>
+
+
+		<TD height="35" valign="middle" BGCOLOR=#633312 class="headertd"><span class="hdr1">Heritage of this Coffee Plantation </span></TD>
+
+
+	</TR>
+	<TR>
+		<TD WIDTH=256 HEIGHT=266 valign="top" BGCOLOR=#FF7800 class="contenttd"><p>Coffee Seasons</p>
+		  <a href ="spring.html" > Spring </a> <br> 
+		  <a href ="summer.html" > Summer </a> <br> 
+		  <a href ="autumn.html" > Autumn </a> <br> 
+		  <a href ="winter.html" > Winter </a> <br> 
+
+      <br>
+		  <a href ="photos.html" > Photos during various seasons </a>
+		  <br>
+
+
+
+
+   	  <p>&nbsp;</p>
+
+		  <p>Other Crops </p> 
+		  <a href ="oranges.html"> Oranges </a> <br>
+		  <a href ="areca.html">   Areca   </a> <br>
+		  <a href ="beetel.html">  Beetel  </a> <br>
+		  <a href ="pepper.html">  Pepper  </a> <br>
+		  <br>
+
+		  <p> Flowering plants : </p>
+		  <a href ="Orchids.html">      Orchids </a> <br>
+		  <a href ="Anthuriums.html">   Anthriums   </a> <br>
+                    
+        
+	  <p>[..more] </p></TD>
+		<TD WIDTH=519 HEIGHT=266 valign="top" BGCOLOR=#FF7800 class="contenttd">
+<br>
+This page was created for providing an insight into coffee growing and the heritage of this plantation.
+Included in this page are templates, graphics, family pictures, database with all relic and current information.
+<br>
+<br>
+
+The included graphic file with the .psd extension is compatible with photoshop
+and other advanced graphic editors to allow you to quickly change the existing
+content and rebrand, customize and update the original graphics to your own needs.
+<br>
+<br>
+
+
+Also, this page was created to give a demonstration of the various things that could be incorporated with MySQL, JavaScript, Java, PHP and other Computer web related technologies.
+
+<br>
+<br>
+
+MySQL was used for database storing and retriving information.
+PHP for rapid scripting.
+Javascript to test some functionality.
+and Apache is the backend web server.
+
+<br>
+
+If you have any questions regarding this page,
+please go to our company forum at http://www.skconsultants.in/forum</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=775 HEIGHT=24 COLSPAN=2 BGCOLOR=#D44100 class="headertd"><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td><span class="baselink">© Copyright 2007 SK Consultants Inc. All Rights Reserved. </span></td>
+              <td align="right"> <a href="http://www.skconsultants.in/templates" target="_blank"><font  color="#FFFFFF">Design by SK Consultants.in</font></a></td>
+            </tr>
+          </table></TD>
+	</TR>
+	<TR bgcolor="#FF7800">
+		<TD WIDTH=775 COLSPAN=2>&nbsp;</TD>
+	</TR>
+</TABLE>
+</BODY>
+</HTML>

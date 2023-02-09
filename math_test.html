@@ -1,0 +1,210 @@
+<html>
+<head>
+
+<script type="text/javascript">
+
+correct_count =0;
+incorrect_count = 0;
+timerRunning=false;
+theCount=0;
+theMin =0;
+
+
+function doTimer() 
+{
+
+	theTimeout = setTimeout ("doTimer();", 1000 );
+
+        theCount += 1;
+
+        if ( theCount >60 ) {
+		theCount = 0;
+		theMin += 1;
+
+	}
+
+        t_display = theMin + ":" + theCount;
+        
+	document.form1.timer.value = t_display;
+
+}
+
+
+function strt() {
+
+        document.form1.resulta.value ="";
+        document.form1.resultb.value ="";
+        document.form1.answer.value ="";
+
+
+        // sets the focus to the answer widget
+
+        document.form1.answer.focus();
+
+        if ( timerRunning == false ) {
+           timerRunning= true;
+
+           doTimer();
+        }
+	
+   	do_prob();
+	
+}
+
+
+
+function do_prob() {
+
+	document.form1.answer.value="";
+	num1 = Math.floor ( Math.random () * 11 + 1 );
+
+	document.form1.resulta.value = num1;
+
+
+	num2 = Math.floor ( Math.random () * 11 + 1 );
+
+	document.form1.resultb.value = num2;
+
+	ans = (num1 + num2 );
+        
+	//alert ("The answer should be " + ans );
+
+}
+
+function chck () {
+
+
+ user_answer = document.form1.answer.value ;
+ if ( user_answer == "" ) {
+   alert ( "Please enter an answer, before you check it");
+   return;
+
+ }  
+ //alert ( "the user answer is " + user_answer );
+  correct_ans =  num1 + " + " + num2  + " = " + ans ;
+
+  if ( user_answer == ans ) {
+
+    document.form1.result1.value = "Correct Answer!!!!!  " + correct_ans;
+
+    correct_count++;
+    document.form1.correct.value = correct_count;
+    document.form1.result1.style.color = "#000000";
+
+
+  } else {
+    document.form1.result1.value = "Incorrect Answer !!!!  " + correct_ans;
+    document.form1.result1.style.color = "#FF0000";
+
+    incorrect_count++;
+    document.form1.incorrect.value = incorrect_count;
+
+  }
+
+	
+	percentage = (( correct_count - incorrect_count) / (correct_count + incorrect_count) ) * 100;
+
+
+	percentage = Math.round ( percentage );
+        percentage_str = percentage + " % ";
+
+
+	document.form1.percent.value = percentage_str ;
+	if ( percentage < 90 ) {
+
+		// color the window red.
+  		document.form1.percent.style.color = "#FF0000";
+
+        } else {
+  		document.form1.percent.style.color = "#000000";
+
+     	}
+  
+
+	strt();
+
+
+}
+
+function checkEvent( e ) {
+   var characterCode;
+   
+   // jennifermadden.com/javascript/stringEnterKeyDetector.html
+
+   
+   if ( e && e.which ) {
+
+	e = e;
+	characterCode = e.which;
+
+   } else {
+
+	e = event;
+	characterCode = e.keyCode;
+
+   }
+
+   if ( characterCode == 13 ) {
+	chck();
+   } else  {
+    return true;
+   }
+
+}
+
+</script>
+</head>
+
+
+<!------------------------------------------------------->
+
+<form name="math1">
+<center>
+   <input type="button" value="Start" onclick="strt()">
+
+</center>
+
+</form>
+
+<CENTER>
+<TABLE>
+<TR>
+<TD>
+<FORM NAME="form1">
+<CENTER>
+
+<font size="+1">
+<INPUT type="text" value="" name="resulta" size=5>
+&nbsp; + &nbsp;
+<INPUT type="text" value="" name="resultb" size=5>&nbsp;Is &nbsp;
+
+<INPUT type="text" value="" name="answer" size=10 onkeypress="checkEvent(event)">
+&nbsp;&nbsp;&nbsp;
+
+
+<input type="button" value="Check" onclick="chck();">
+</FONT></TD></TR>
+
+</TABLE>
+
+
+<input type="text" value="Press the Start Button" name="result1" size=75> <br>
+<br>
+<br>
+You have 
+<input type="text" value="" name="correct" size=10> Correct, 
+<input type="text" value="" name="incorrect" size=10> InCorrect,
+<input type="text" value="" name="percent" size=10> Percent
+
+<br>
+
+<br>
+
+Time in seconds <br>
+<input type="text" name="timer" size=5> 
+
+
+</center></div>
+</form>
+
+</html>

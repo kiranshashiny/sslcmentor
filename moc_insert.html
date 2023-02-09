@@ -1,0 +1,54 @@
+<html>
+
+	<body>
+
+
+	<h3> Network Monitoring Reporting Page </h3>
+
+	<form name ="nmon"  method="GET" action="moc_insert.php" >
+
+	Please select the month for which you would like to enter the Reports. <br>
+	<br>
+	
+	Month <select name="months" >
+	<option value="Jan" > January </option>
+	<option value="Feb" >  Feb </option>
+	<option value="Mar" >  March</option>
+	<option value="Apr" >  April </option>
+	<option value="May" >  May</option>
+	<option value="Jun" >  June</option>
+	<option value="Jul" >  July </option>
+	<option value="Aug" >  Aug </option>
+	<option value="Sep" >  Sep </option>
+	<option value="Oct" >  Oct</option>
+	<option value="Nov" >  Nov</option>
+	<option value="Dec" >  Dec</option>
+	</select>
+	<br>
+	<br>
+
+	Monitored Servers: <input type="text" name="mon_servers" width="5"  />
+
+	ManageNow Tickets: <input type="text" name="managenow_tkts" width="5"/>
+	<br>
+	<br>
+	Severity 1 Tickets: <input type="text" name="sev1" width="5" />
+	<br>
+	<br>
+	Severity 2 Tickets: <input type="text" name="sev2" width="5" />
+	<br>
+	<br>
+	Severity 3 Tickets: <input type="text" name="sev3" width="5" />
+
+	<br>
+	<br>
+
+	<input type="submit" name="submit"  value="Please submit data" >
+
+	</form>
+
+	</body>
+
+
+
+</html>

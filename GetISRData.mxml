@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	backgroundColor="#ffffff">
+	
+	<mx:Style source="styles/styles.css" />
+
+	<mx:HRule x="10" y="37" width="90%"/>
+	<mx:Text x="10" y="10" text="Submit form using get method" styleName="headerStyle" id="label1"/>
+	
+	<mx:String id="phpFile">http://ie10ltxphk5zl1s:9999/mysql_query_data.php</mx:String>
+	
+	<mx:HTTPService id="form1" 
+		url="{phpFile}" method="GET" resultFormat="text" 
+		result="{textarea1.text = String(event.result)}">
+		<mx:request>
+			<isrname>{isrname.text}</isrname>
+			<age>{age.text}</age>
+		</mx:request>
+	</mx:HTTPService>
+	
+	<mx:TextInput id="isrname" x="10" y="99"/>
+	<mx:Button x="179" y="99" label="Submit" click="form1.send()"/>
+
+	<mx:Label x="10" y="73" text="Submit form to PHP"/>
+	<mx:TextArea x="10" y="175" width="395" height="188" id="textarea1"/>
+	<mx:Button x="252" y="99" label="Check if php file exists" click="{navigateToURL(new URLRequest(phpFile));}"/>
+	<mx:TextInput id="age" x="10" y="130"/>
+	
+	<mx:Label x="10" y="150" text="Result"/>
+
+</mx:Application>

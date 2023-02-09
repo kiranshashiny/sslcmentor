@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	backgroundColor="#ffffff" color="#333333">
+	
+	<mx:Style source="styles/styles.css" />
+	
+	<mx:HRule y="37" left="10" right="10"/>
+	<mx:Text x="10" y="10" text="GETTING STARTED WITH FLEX AND PHP" styleName="headerStyle" id="label1"/>	
+	
+	
+	<mx:LinkButton x="10" y="220" label="Changing states in Flex" click="open('ChangingStates.html')"/>
+	<mx:LinkButton x="10" y="280" label="Uploading a file to PHP" click="open('ChangingViews.html')"/>
+	<mx:LinkButton x="10" y="250" label="Downloading a file" click="open('FileDownload.html')"/>
+	<mx:LinkButton x="10" y="340" label="Login example application" click="open('LoginApplication.html')"/>
+	<mx:LinkButton x="10" y="190" label="Navigating to another URL or targeting a frame" click="open('NavigateToURL.html')"/>
+	<mx:LinkButton x="10" y="310" label="Populating a DataGrid with XML from PHP" click="open('PopulateDataGridWithXML.html')"/>
+	<mx:LinkButton x="10" y="160" label="Populating a list with XML from the server" click="open('PopulateListWithXML.html')"/>
+	<mx:LinkButton x="10" y="130" label="Submitting a form to Google using the GET method" click="open('SubmitFormToGoogle.html')"/>
+	<mx:LinkButton x="10" y="70" label="Submitting a form to PHP using the GET method" click="open('SubmitUsingGet.html')"/>
+	<mx:LinkButton x="10" y="100" label="Submitting a form to PHP using the POST method" click="open('SubmitUsingPost.html')"/>
+	
+	<mx:Script>
+		<![CDATA[
+			import flash.net.navigateToURL;
+			private function open(url:String):void {
+				navigateToURL(new URLRequest(url));
+			} 
+		]]>
+	</mx:Script>
+	
+	
+</mx:Application>

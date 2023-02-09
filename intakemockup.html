@@ -1,0 +1,185 @@
+
+<html>
+
+<head>
+		<script type="text/javascript" src="expandCollapse.js"></script>
+<style type="text/css">
+textarea{
+color: red;
+}
+</style>
+
+</head>
+
+
+<body>
+
+<img src="intakedocument.bmp"> </img>
+<img src="intakedocument2.bmp"> </img>
+<img src="intakedocument3.bmp"> </img>
+<br>
+
+
+<TEXTAREA name="thetext" rows="5" cols="80">
+ Understand current performance for all ECC/HBS, HPS, and S&C Oracle production and development environments.  Ensure we understand what applications and database are running on the servers.  Therefore this request is to have solutioning performed on all servers listed below.
+</TEXTAREA>
+
+<br>
+
+<h3><u> Select the specific requirement for this ISR</u></h3>
+
+
+
+
+<!------------------  Ist Para  ------------------------->
+
+<br>
+<input type="button" class="button" onclick="return toggleMe('para1')" value="IPControl">
+<br>
+
+<div id="para1" style="display:none">
+
+Paragraph to describe the IP Control parameters.
+
+
+<br>
+<table border="1">
+
+<tr>
+
+<td> <b>Server Name: </b> </td> <td> <input type="text" name="servername"  value="DE07NTFS1"> </input></td>  
+</tr>
+
+<tr>
+
+<td> <b>IP Address : </b> </td> <td> <input type="text" name="ipaddress"  value="159.72.108.22"> </input> </td>
+
+</tr>
+
+<tr>
+
+<td> <b>DHCP Scopes : </b>  </td> <td><input type="text" name="ipaddress"  value="159.72.108"> </input>  </td>
+
+</tr>
+
+<tr>
+<td> <b>Managed by : </b> </td> <td> <input type="text" name="ipaddress"  value="IBM"> </input>  </td>
+
+</tr>
+</table>
+<hr width="100%" align="left"></hr>
+</div>
+
+
+
+<!------------------  2nd paragraph --------->
+<input type="button" class="button" onclick="return toggleMe('para2')" value="Server Refresh">
+
+<div id="para2" style="display:none">
+<b>Old Server Information</b>
+<table border="1">
+
+<tr>
+
+<td> <b>Server Name: </b> </td> <td> <input type="text" name="servername"  value="DE07NTFS10"> </input></td>  
+</tr>
+
+<tr>
+
+<td> <b>IP Address : </b> </td> <td> <input type="text" name="ipaddress"  value="159.72.108.22"> </input> </td>
+
+</tr>
+
+<tr>
+
+<td> <b>Current Lease Date : </b>  </td> <td><input type="text" name="leasedate"  value="11-03-2008"> </input>  </td>
+
+</tr>
+
+<tr>
+<td> <b>Approximate Billing Amount : </b> </td> <td> <input type="text" name="billilngamount"  value="1800"> </input>  </td>
+
+</tr>
+<tr>
+<td> <b>Managed By : </b> </td> <td> <input type="text" name="managedby"  value="IBM"> </input>  </td>
+
+</tr>
+</table>
+<hr width="100%" align="left"></hr>
+</div>
+<br>
+<!------------------  Finsished 2nd paragraph --------->
+
+
+<!------------------  3rd paragraph --------->
+
+<input type="button" class="button" onclick="return toggleMe('para3')" value="OS Upgrade">
+
+<div id="para3" style="display:none">
+
+<table border="1">
+
+<tr>
+
+<td> <b>Server Name: </b> </td> <td> <input type="text" name="servername"  value="DE07NTFS1"> </input></td>  
+</tr>
+
+<tr>
+
+<td> <b>IP Address : </b> </td> <td> <input type="text" name="ipaddress"  value="159.72.108.22"> </input> </td>
+
+</tr>
+
+<tr>
+
+<td> <b>DHCP Scopes : </b>  </td> <td><input type="text" name="ipaddress"  value="159.72.108"> </input>  </td>
+
+</tr>
+
+<tr>
+<td> <b>Managed by : </b> </td> <td> <input type="text" name="ipaddress"  value="IBM"> </input>  </td>
+
+</tr>
+
+</table>
+<hr width="100%" align="left"></hr>
+</div>
+<!------------------  Finished 3nd paragraph --------->
+
+<br>
+
+
+<hr width="100%" align="left"></hr>
+
+<!-- <h3><u>More documentations</u></h3>  -->
+<br>
+<b>Related ISR's</b>
+<table border="1"> 
+<tr bgcolor="#0F5981"><td><font color="white"><b>ISR Type</b></font></td><td class="TableHeadingWhite"><font color="white"><b>ISR Number</b></font></td><td class="TableHeadingWhite"><font color="white"><b>Location</b></font></td><td class="TableHeadingWhite"><font color="white"><b>Charges</b></font></td></tr>
+<tr bgcolor="#D2DBE5"><td rowspan="3" align="center">IP Control</td><td>HLS09-0031</td><td>WA17</td><td>1989.75</td><tr>
+<tr  bgcolor="#ABBDD2"><td>AEROITS10-0096</td><td>AZ18</td><td>360.00</td></tr>
+<tr bgcolor="#D2DBE5"><td rowspan="2"align="center">Server Refresh</td><td>AEROITS10-0011</td><td>AZ76</td><td>2898.75</td><tr>
+<tr  bgcolor="#ABBDD2"><td rowspan="2"align="center">DB Migration</td><td>ACS10-0098</td><td>AZ18</td><td>453.00</td><tr>
+</table>
+<br>
+<br>
+<hr width="100%" align="left"></hr>
+<b><u>Timelines</u></b><br>
+<table border="1"> 
+<tr><th>ISR Number</th><th>Consult Phase</th><th>Solutioning</th><th>Implementation</th><th>Comments</th></tr>
+<tr><td>HLS09-0031</td><td>2 Weeks</td><td>2 Weeks</td><td>2 Weeks</td><td>None.</td><tr>
+<tr><td>AERO10-0658</td><td>1 Week</td><td>3 Weeks</td><td>3 Weeks</td><td>None.</td>
+</table>
+<hr width="100%" align="left"></hr>
+<br>
+<table><tr><td><p><b>Priority</b></p></td><td><input type="text" name="priority" value="999"></td><tr></table>
+<br>
+<br>
+   <INPUT type="submit" value="Send to GSDE/SUBMIT">
+   <INPUT type="reset">
+
+
+</body>
+
+
+</html>

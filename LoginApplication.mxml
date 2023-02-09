@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	backgroundColor="#ffffff">
+	
+	<mx:Style source="styles/styles.css" />
+	
+	<mx:HRule y="37" left="10" right="10"/>
+	<mx:Text x="10" y="10" text="Login Application" styleName="headerStyle" id="label1"/>	
+	
+	<mx:Script>
+		<![CDATA[
+		// import the classes we are going to use
+		import mx.controls.Alert;
+		import mx.events.FlexEvent;
+		import mx.managers.SystemManager;
+		import mx.rpc.events.FaultEvent;
+		import mx.events.ItemClickEvent;
+		import mx.collections.ArrayCollection;
+		import mx.rpc.events.ResultEvent;
+		
+		// store the user access level after user logs in
+		private var userAccess:String = "";
+		// define roles to compare against
+		private var roles:String = "user";
+		
+		// these are the menus that we use to show the user.
+		// Bindable lets us bind to this variable
+		// ArrayCollections are a very powerful Array with additional features we can use later
+		[Bindable]
+		private var guestMenu:ArrayCollection = new ArrayCollection(["home"]);
+		
+		[Bindable]
+		private var userMenu:ArrayCollection = new ArrayCollection(["home","user"]);
+		
+		// timeout after twenty seconds
+		public var timeout:Number = 20000;
+		private var timeoutTotal:Number = 0;
+		private var timeoutLastCall:Number;
+		public var sessionExpired:Boolean = false;
+		public var enableTimeout:Boolean = true;
+		
+		// we could convert this into a reusable class
+		// we are not going to for simplicity
+		private function timeoutHandler(event:FlexEvent):void {
+			// get current time
+			var curTime:int = getTimer();
+			var timeDiff:int = 0;
+			if (isNaN(timeoutLastCall)) {
+				timeoutLastCall = curTime;
+			}
+			
+			timeDiff = curTime - timeoutLastCall;
+			timeoutLastCall = curTime;
+			
+			// if time has passed since the idle event we assume user is interacting
+			// reset time total - otherwise increment total idle time
+			if (timeDiff > 1000) {
+				timeoutTotal = 0;
+			}
+			else {
+				// update time
+				// the status field will not be updated unless the application is idle
+				// it is only display a countdown for learning purposes
+				timeoutTotal += 100;
+				status.text = "Timeout in " + String(Number((timeout - timeoutTotal)/1000).toFixed(0)) + " seconds";
+			}
+			
+			
+			// if the total time of inactivity passes our timeout
+			// and the session already hasn't expired then logout user
+			if (timeoutTotal > timeout && !sessionExpired) {
+				// logout user
+				// or set flag
+				sessionExpired = true;
+				status.text = "timeout threshold has been reached";
+				sessionTimeoutHandler();
+			}
+		}
+		
+		// when the application times out due to inactivity we call this function
+		private function sessionTimeoutHandler():void {
+			logout();
+			var message:String = "Session Expired due to inactivity!\nPlease log back in to resume";
+			Alert.show(message, "Session Expired", Alert.OK);
+			// remove idle listener
+			var sysMan:SystemManager = Application.application.systemManager;
+			sysMan.removeEventListener(FlexEvent.IDLE, timeoutHandler);
+		}
+		
+		// this is the function that receives a response from the server after clicking submit
+		// event.result contains the string response from the server
+		// we check if the user has access to any of the roles
+		private function handleLogin(event:ResultEvent):void {
+			userAccess = event.result as String;
+			trace("handleLogin result data = "+userAccess);
+			
+			if (userAccess.indexOf(roles)>-1) {
+				// login success
+				// hide failed login message, set login form to success state, show user menu
+				loginFailedText.visible = false;
+				loginStack.selectedChild = loginSuccess;
+				linkBar.dataProvider = userMenu;
+				sessionExpired = false;
+				viewStack.selectedChild = viewStack.parentApplication[String(userMenu.getItemAt(1))];
+				var sysMan:SystemManager = Application.application.systemManager;
+				
+				if (enableTimeout) {
+					// Dispatched every 100 milliseconds when there has been no keyboard or mouse activity for 1 second.
+					sysMan.addEventListener(FlexEvent.IDLE, timeoutHandler);
+				}
+			}
+			else {
+				// show failed login message, show guest menu
+				loginFailedText.visible = true;
+				linkBar.dataProvider = guestMenu;
+			}
+		}
+		
+		// this function is run when a user clicks a menu item
+		// if we wanted we could make this more robust here
+		// check if the session has expired on the server, etc
+		// if it fails we can move the user back to the guest view or alert them to log in again
+		private function handleLinkBar(event:ItemClickEvent):void {
+			viewStack.selectedChild = viewStack.parentApplication[String(event.label)];
+		}
+		
+		// handles when user manually destroys the session
+		private function handleLogout(event:ResultEvent):void {
+			textarea1.text = "You have manually destroyed the session. Try to get data from the server.";
+		}
+		
+		// handles logging out for other functions
+		private function logout():void {
+			loginStack.selectedChild = loginForm;
+			loginFailedText.visible = false;
+			linkBar.dataProvider = guestMenu;
+			viewStack.selectedChild = viewStack.parentApplication[guestMenu[0]];
+			username.text = "";
+			password.text = "";
+		}
+		
+		// handles when something goes wrong with our service call
+		private function handleFault(event:FaultEvent):void {
+			// for stream error 2032 see http://www.judahfrangipane.com/blog/?p=87
+			trace("fault = "+event.message);
+			loginStack.selectedChild = loginForm;
+			errorText.visible = true;
+			errorText.text = "Could not connect to the server. Check the url. \nFault " + event.fault;
+			linkBar.dataProvider = guestMenu;
+			viewStack.selectedChild = viewStack.parentApplication[guestMenu[0]];
+		}
+		]]>
+	</mx:Script>
+	
+	<!-- COMMUNICATION -->
+	<mx:String id="phpFileLogin">http://ie10ltxphk5zl1s:9999/php/login.php</mx:String>
+	<mx:String id="phpFileLogout">http://ie10ltxphk5zl1s:9999/php/logout.php</mx:String>
+	<mx:String id="phpFileData">http://ie10ltxphk5zl1s:9999/php/secure_data.php</mx:String>
+	
+	<mx:HTTPService id="loginService" url="{phpFileLogin}" method="POST" resultFormat="text" 
+		result="{handleLogin(event)}" fault="{handleFault(event)}">
+		<mx:request>
+			<username>{username.text}</username>
+			<password>{password.text}</password>
+		</mx:request>
+	</mx:HTTPService>
+	
+	<mx:HTTPService id="logoutService" url="{phpFileLogout}" resultFormat="text" 
+		result="{handleLogout(event)}" fault="{handleFault(event)}"/>
+		
+	<mx:HTTPService id="getDataService" url="{phpFileData}" resultFormat="text" 
+		result="{textarea1.text = String(event.result);}" fault="{handleFault(event)}"/>
+
+	<!-- LAYOUT -->
+	<mx:Label id="loginFailedText" text="Login failed!" fontWeight="bold" color="#000000" right="10" y="10" visible="false"/>
+	
+	<mx:ViewStack id="loginStack" y="61" right="10" height="30" width="400" paddingLeft="5">
+		<mx:HBox id="loginForm" label="Login Form" verticalAlign="middle">
+			<mx:Label text="Username"/>
+			<mx:TextInput id="username" width="80" borderStyle="solid" text="user"/>
+			<mx:Label text="Password"/>
+			<mx:TextInput id="password" width="80" displayAsPassword="true" borderStyle="solid"
+				enter="{loginService.send()}" text="password"/>
+			<mx:Button label="Submit" click="{loginService.send()}"/>
+		</mx:HBox>
+		<mx:HBox id="loginSuccess" label="Login Success" verticalAlign="middle" horizontalAlign="right">
+			<mx:Label text="Welcome user, you are logged in!" id="welcomeText"/>
+			<mx:Button label="Logout" click="{logout()}"/>
+		</mx:HBox>
+	</mx:ViewStack>
+	
+	<mx:ViewStack id="viewStack" right="10" left="10" top="100" bottom="20">
+		<mx:Canvas id="home" label="home" width="100%" height="100%" backgroundColor="#f6f6f6">
+			<mx:Label x="10" y="10" text="Guest View" fontWeight="bold"/>
+			<mx:Label x="10" y="36" text="This view is visible to everyone"/>
+			<mx:Text visible="false" left="10" right="10" x="10" y="62" text="Label" color="#ff0000" fontWeight="bold" id="errorText"/>
+		</mx:Canvas>
+		<mx:Canvas id="user" label="user" width="100%" height="100%" backgroundColor="#f6f6f6">
+			<mx:Label x="10" y="10" text="User View" fontWeight="bold"/>
+			<mx:Label x="10" y="36" text="This view is visible only to logged in users. "/>
+			<mx:Button x="10" y="62" label="Get Authenticated Data" id="getUserData" click="getDataService.send();"/>
+			<mx:Button x="180" y="62" label="Destroy Session" id="destroySession" click="logoutService.send()"/>
+			<mx:TextArea x="10" y="92" width="312" height="150" id="textarea1"/>
+			<mx:Text x="10" y="250" text="Get data that is only available if you are part of the &quot;user&quot; group. Destroy the session and test it again to see authenticated data is no longer available." width="295"/>
+			<mx:Text y="10" text="If you do not move the mouse or keyboard for 1 second then the idle event starts. We use this event to timeout the application (client side) when it has been idle too long. The timeout is currently set to 20 seconds for this example. You could also start a timer starting from the last call you made to the server. This will allow you to sync the time the client expires with the time server session expires." width="307" right="10"/>
+		</mx:Canvas>
+	</mx:ViewStack>
+	
+	<mx:LinkBar id="linkBar" x="10" y="63" dataProvider="{guestMenu}" itemClick="handleLinkBar(event)" backgroundColor="#ffffff" backgroundAlpha="0.41">
+	</mx:LinkBar>
+	<mx:Label y="21" id="status" right="20" fontWeight="bold" color="#E40000"/>
+
+</mx:Application>

@@ -1,0 +1,29 @@
+<html>
+
+<script type="text/javascript">
+
+function button_pressed () {
+
+	var l_name = document.myname.loginname.value;
+	var l_pwd  = document.myname.loginpasswd.value;
+
+ //	alert ("name " +l_name + " password " + l_pwd );
+
+}
+
+</script>
+<body>
+	<form name="myname"  action="login.php" method="post" >
+
+		<h3> Please enter your login name and password to proceed.</h3>
+		Name : <input type="text"  id="loginname" name="name_val" /> <br>
+		Password: <input type="text"  id="loginpasswd" name="pwd_val" /> <br>
+		<input type="submit"  onclick="button_pressed()" /> <br>
+
+	</form>
+
+</body>
+
+
+
+</html>

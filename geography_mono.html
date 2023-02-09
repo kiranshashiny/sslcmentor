@@ -1,0 +1,264 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Personal Profile</title>
+<link href="/css/threesite.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<script type='text/javascript'>
+var idx = 1;
+var correct_count = 0;
+function regenerate() { 
+
+  alert ("Inside Regenerate" );
+
+	alert ( arr.length );
+ 
+}
+function stats() { 
+
+	alert (" total questions"+arr.length );
+
+
+}
+function reset_radio_btn() { 
+
+	// alert ("in the reset btn");
+
+	for ( var i=0; i< r1.length;  i++ ) {
+
+		if ( r1[i].checked ) {
+			//  alert ("this button is checked" );
+			r1[i].checked=0;
+		}
+	}
+
+}
+function print_percentage ( count) 
+{
+
+
+		var percentage = Math.round( ( ( count / idx ) * 100), 2);		
+
+	  
+	  document.getElementById('score').value =  percentage+" %";
+
+
+		return;
+
+}
+function check_answer() { 
+
+	found_it = 0;
+
+	for ( var i=0; i< r1.length;  i++ ) {
+
+		if ( r1[i].checked ) {
+			found_it = r1[i].value;
+			user_idx = i;
+			
+			break;
+		}
+	}
+	if ( found_it == 0 ) {
+
+		alert ("You have not chosen an answer. Please select your answer before checking.");
+
+		return 0;
+
+	}
+
+	if ( user_idx == arr[idx].ans ) {
+
+		alert ("Good ! Correct Answer");
+
+		correct_count++;
+
+		print_percentage ( correct_count );
+
+	} else {
+
+		alert (" Incorrect Answer! ");
+		print_percentage ( correct_count );
+
+	}
+	return 1;
+
+}
+function onload_function () {
+
+	idx = 1;
+
+	document.getElementById("h1id").innerHTML = "Q"+idx+": "+arr[idx].str;
+
+	document.getElementById('Answer1').firstChild.nodeValue = arr[idx].answers[0];
+	document.getElementById('Answer2').firstChild.nodeValue = arr[idx].answers[1];
+	document.getElementById('Answer3').firstChild.nodeValue = arr[idx].answers[2];
+	document.getElementById('Answer4').firstChild.nodeValue = arr[idx].answers[3];
+
+	reset_radio_btn();
+	
+	document.getElementById('score').value =  0;
+	
+}
+function shuffle( skip_option ) { 
+
+
+	if ( skip_option == 0 ) {
+	var res = check_answer ();
+
+	if ( res == 0 ) {
+		return;
+
+	}
+	}
+
+	idx = idx + 1;
+
+
+	if ( idx >= arr.length ) {
+		idx = 1;
+		alert ( "You Answered "+correct_count+" Correct Answers Out of 10 Questions" );
+	  return;
+	}
+
+
+	document.getElementById("h1id").innerHTML = "Q"+idx+": "+arr[idx].str;
+
+	document.getElementById('Answer1').firstChild.nodeValue = arr[idx].answers[0];
+	document.getElementById('Answer2').firstChild.nodeValue = arr[idx].answers[1];
+	document.getElementById('Answer3').firstChild.nodeValue = arr[idx].answers[2];
+	document.getElementById('Answer4').firstChild.nodeValue = arr[idx].answers[3];
+
+	reset_radio_btn();
+	
+}
+var  arr = new Array;
+	 arr[1]        =  new Object ();
+	 arr[1].str    =  "This is not a valley of Himachal ";
+	 arr[1].ans    =  1;
+	 arr[1].answers    =  new Array;
+	 arr[1].answers[0] = " Kashmir ";
+	 arr[1].answers[1] = " Narmada ";
+	 arr[1].answers[2] = " Kulu ";
+	 arr[1].answers[3] = " Lahul ";
+
+	 arr[2]        =  new Object ();
+	 arr[2].str    =  "India lies in the....hemisphere:";
+	 arr[2].ans    =  1;
+	 arr[2].answers    =  new Array;
+	 arr[2].answers[0] = " Northern and Eastern ";
+	 arr[2].answers[1] = " Northern and Western ";
+	 arr[2].answers[2] = " Southern and Eastern ";
+	 arr[2].answers[3] = " Southern and Western ";
+
+	 arr[3]        =  new Object ();
+	 arr[3].str    =  "India's largest state is ";
+	 arr[3].ans    =   1;
+	 arr[3].answers    =  new Array;
+	 arr[3].answers[0] = " Uttar Pradesh ";
+	 arr[3].answers[1] = " Bihar ";
+	 arr[3].answers[2] = " Rajasthan ";
+	 arr[3].answers[3] = " Maharashtra ";
+
+	 arr[4]        =  new Object ();
+	 arr[4].str    =  "The highest peak in India is.... ";
+	 arr[4].ans    =  1;
+	 arr[4].answers    =  new Array;
+	 arr[4].answers[0] = " Gowri Shankar ";
+	 arr[4].answers[1] = " K2 or God-win Austin ";
+	 arr[4].answers[2] = " Mount Everest ";
+	 arr[4].answers[3] = " Makalu ";
+
+	 arr[5]        =  new Object ();
+	 arr[5].str    =  "This is a hill station of the peninsular plateau ";
+	 arr[5].ans    =  1;
+	 arr[5].answers    =  new Array;
+	 arr[5].answers[0] = " Darjeeling ";
+	 arr[5].answers[1] = " Mussorie ";
+	 arr[5].answers[2] = " Mt Abu ";
+	 arr[5].answers[3] = " Nainital ";
+
+	 arr[6]        =  new Object ();
+	 arr[6].str    =  "India is the largest country. ";
+	 arr[6].ans    =  1;
+	 arr[6].answers    =  new Array;
+	 arr[6].answers[0] = " First ";
+	 arr[6].answers[1] = " Second ";
+	 arr[6].answers[2] = " Sixth ";
+	 arr[6].answers[3] = " Seventh ";
+
+	 arr[7]        =  new Object ();
+	 arr[7].str    =  "This is a division of the eastern coast";
+	 arr[7].ans    =  1;
+	 arr[7].answers    =  new Array;
+	 arr[7].answers[0] = " Coromandal ";
+	 arr[7].answers[1] = " Konkan ";
+	 arr[7].answers[2] = " Malabar ";
+	 arr[7].answers[3] = " Canara ";
+
+	 arr[8]        =  new Object ();
+	 arr[8].str    =  "The Himalayan ranges start from Pamir Knot and extend up to ";
+	 arr[8].ans    =  1;
+	 arr[8].answers    =  new Array;
+	 arr[8].answers[0] = " Manipur ";
+	 arr[8].answers[1] = " Digboi ";
+	 arr[8].answers[2] = " Nagaland ";
+	 arr[8].answers[3] = " Tripura ";
+
+	 arr[9]        =  new Object ();
+	 arr[9].str    =  "Mount Everest is located between ";
+	 arr[9].ans    =  1;
+	 arr[9].answers    =  new Array;
+	 arr[9].answers[0] = " India and Nepal ";
+	 arr[9].answers[1] = " Nepal and Tibet ";
+	 arr[9].answers[2] = " Tibet and China";
+	 arr[9].answers[3] = " China and India ";
+
+	 arr[10]        =  new Object ();
+	 arr[10].str    =  "The two important west flowing rivers of peninsular India are... ";
+	 arr[10].ans    =  1;
+	 arr[10].answers    =  new Array;
+	 arr[10].answers[0] = " Godavari and Mahanadi ";
+	 arr[10].answers[1] = " Krishna and Kaveri ";
+	 arr[10].answers[2] = " Tungabhadra and Hemavathi ";
+	 arr[10].answers[3] = " Narmada and Tapati ";
+
+function show_answer () 
+{
+
+  
+	// alert ( "The Correct Answer Index "+arr[idx].ans  );
+	alert ( "The Correct Answer is "+arr[idx].answers[  arr[idx].ans] );
+
+}
+</script>
+<body onload="onload_function()">
+<div class="middle">
+<h4  id="h1id">  This is not a valley of Himachal                    </h4>	
+<input type="radio" name="r1"    />
+<label for="r1" id="Answer1"    > Kashmir  </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r2" id="Answer2"    > Narmada  </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r3" id="Answer3"    > Kulu  </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r4" id="Answer4"    > Lahul  </label> 
+<br>
+<br>
+ <input type="button" name="Check" value="Check Answer"  onclick="check_answer()"/>
+ <input type="button" name="Show"  value="Show Answer"   onclick="show_answer()"/>
+ <input type="button" name="Next"  value="Next" onclick="shuffle(1)"/><br>
+
+</div>
+</body>
+</html>

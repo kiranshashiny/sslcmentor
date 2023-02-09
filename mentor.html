@@ -1,0 +1,154 @@
+<html>
+<script type='text/javascript'>
+var idx =0;
+function regenerate() { 
+
+  alert ("inside regenerate" );
+
+	alert ( arr.length );
+ 
+}
+function check_answer() { 
+
+	alert ( " in the check answer");
+
+}
+function shuffle() { 
+
+	idx = idx + 1;
+	alert ("in the shuffle"+idx);
+
+	if ( idx == 5 ) {
+		idx = 0;
+	}
+
+	document.getElementById("h1id").innerHTML = arr[idx].str;
+
+	document.getElementById('Answer1').firstChild.nodeValue = arr[idx].answers[0];
+	document.getElementById('Answer2').firstChild.nodeValue = arr[idx].answers[1];
+	document.getElementById('Answer3').firstChild.nodeValue = arr[idx].answers[2];
+	document.getElementById('Answer4').firstChild.nodeValue = arr[idx].answers[3];
+	
+}
+var  arr = new Array;
+	 arr[0]        =  new Object ();
+	 arr[0].str    =  "The limbless  example line";
+	 arr[0].ans    =  2;
+	 arr[0].answers    =  new Array;
+	 arr[0].answers[0] = "line 2 1 ";
+	 arr[0].answers[1] = "line 2 2";
+	 arr[0].answers[2] = "  line 2 3";
+	 arr[0].answers[3] = " line 2 4";
+
+	 arr[1]        =  new Object ();
+	 arr[1].str    =  "Frogs are called poililothermic because...";
+	 arr[1].ans    =  2;
+	 arr[1].answers    =  new Array;
+	 arr[1].answers[0] = "are amphibians";
+	 arr[1].answers[1] = "maintain body temperature";
+	 arr[1].answers[2] = " change body";
+	 arr[1].answers[3] = " lay eggs";
+
+	 arr[2]        =  new Object ();
+	 arr[2].str    =  "Line 6 of biology_1.dat ";
+	 arr[2].ans    =  2;
+	 arr[2].answers    =  new Array;
+	 arr[2].answers[0] = "are amphibians";
+	 arr[2].answers[1] = "maintain body temperature";
+	 arr[2].answers[2] = " change body";
+	 arr[2].answers[3] = " lay eggs";
+
+	 arr[3]        =  new Object ();
+	 arr[3].str    =  "New question in biology_1.dat ";
+	 arr[3].ans    =  4;
+	 arr[3].answers    =  new Array;
+	 arr[3].answers[0] = "answer1:w";
+	 arr[3].answers[1] = "maintain body temperature";
+	 arr[3].answers[2] = " change body";
+	 arr[3].answers[3] = " lay eggs";
+
+	 arr[4]        =  new Object ();
+	 arr[4].str    =  "Line 5 of biology_1.dat ";
+	 arr[4].ans    =  2;
+	 arr[4].answers    =  new Array;
+	 arr[4].answers[0] = " line 5 1";
+	 arr[4].answers[1] = " line 5 2 ";
+	 arr[4].answers[2] = "line 5 3";
+	 arr[4].answers[3] = " line 5 4 ";
+
+	 arr[5]        =  new Object ();
+	 arr[5].str    =  "Line 5 of biology_1.dat ";
+	 arr[5].ans    =  2;
+	 arr[5].answers    =  new Array;
+	 arr[5].answers[0] = "are amphibians";
+	 arr[5].answers[1] = "maintain body temperature";
+	 arr[5].answers[2] = " change body";
+	 arr[5].answers[3] = " lay eggs";
+
+	 arr[6]        =  new Object ();
+	 arr[6].str    =  "Line 4 of biology_1.dat ";
+	 arr[6].ans    =  2;
+	 arr[6].answers    =  new Array;
+	 arr[6].answers[0] = "are amphibians";
+	 arr[6].answers[1] = "maintain body temperature";
+	 arr[6].answers[2] = " change body";
+	 arr[6].answers[3] = " lay eggs";
+
+	 arr[7]        =  new Object ();
+	 arr[7].str    =  "Line 6 of biology_1.dat ";
+	 arr[7].ans    =  2;
+	 arr[7].answers    =  new Array;
+	 arr[7].answers[0] = " line 6 1";
+	 arr[7].answers[1] = " line 6 2 ";
+	 arr[7].answers[2] = "line 6 3";
+	 arr[7].answers[3] = " line 6 4 ";
+
+	 arr[8]        =  new Object ();
+	 arr[8].str    =  "Line 4 of biology_1.dat ";
+	 arr[8].ans    =  2;
+	 arr[8].answers    =  new Array;
+	 arr[8].answers[0] = " line 4 1";
+	 arr[8].answers[1] = " line 4 2 ";
+	 arr[8].answers[2] = "line 4 3";
+	 arr[8].answers[3] = " line 4 4 ";
+
+	 arr[9]        =  new Object ();
+	 arr[9].str    =  "Line 3 of biology_1.dat ";
+	 arr[9].ans    =  3;
+	 arr[9].answers    =  new Array;
+	 arr[9].answers[0] = " line 3  1";
+	 arr[9].answers[1] = " line 3 2 ";
+	 arr[9].answers[2] = " line 3 3";
+	 arr[9].answers[3] = " line 3 4 ";
+
+function show_answer () 
+{
+
+	alert ( "The Correct Answer Index "+arr[idx].ans );
+
+}
+</script>
+<body>
+<h4  id="h1id">  The limbless  example line </h1>		
+<input type="radio" name="r1"    />
+<label for="r1" id="Answer1"    >line 2 1  </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r2" id="Answer2"    >line 2 2 </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r3" id="Answer3"    >  line 2 3 </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r4" id="Answer4"    > line 2 4 </label> 
+<br>
+<br>
+ <input type="button" name="Check" value="Check Answer"  onclick="check_answer()"/>
+ <input type="button" name="Show"  value="Show Answer"   onclick="show_answer()"/>
+ <input type="button" name="Next"  value="Next Question" onclick="shuffle()"/>
+ <h4  id="shuffle" onclick ="shuffle()" > Shuffle the questions </h4>
+</body>
+</html>
