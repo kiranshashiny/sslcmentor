@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	backgroundColor="#ffffff" >
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			import mx.core.UIComponent;
+		]]>
+	</mx:Script>
+	
+	<mx:Style source="styles/styles.css"/>
+
+	<mx:HRule x="10" y="37" width="90%"/>
+	<mx:Text x="10" y="10" text="Box Based Layout" styleName="headerStyle" id="label1"/>
+	
+	<mx:ArrayCollection id="arrayCollection1">
+		<mx:Array>
+			<mx:Object name="Item 1" />
+			<mx:Object name="Item 2" />
+			<mx:Object name="Item 3 with some really long text to show multiline rows of data" />
+			<mx:Object name="Item 4" />
+			<mx:Object name="Item 5" />
+			<mx:Object name="Item 6" />
+			<mx:Object name="Item 7" />
+			<mx:Object name="Item 8" />
+		</mx:Array>
+	</mx:ArrayCollection>
+	
+	<mx:ArrayCollection id="arrayCollection2">
+		<mx:Array>
+			<mx:Object name="Item 1" />
+			<mx:Object name="Item 2" />
+			<mx:Object name="Item 3" />
+			<mx:Object name="Item 4" />
+			<mx:Object name="Item 5" />
+			<mx:Object name="Item 6" />
+			<mx:Object name="Item 7" />
+			<mx:Object name="Item 8" />
+			<mx:Object name="Item 9" />
+			<mx:Object name="Item 10" />
+			<mx:Object name="Item 11" />
+			<mx:Object name="Item 12" />
+		</mx:Array>
+	</mx:ArrayCollection>
+
+	<mx:Label x="10" y="78" text="Components are positioned vertically or horizontally within the container"/>
+	
+	<mx:Label x="232" y="114" text="Horizontal Box" fontWeight="bold"/>
+	<mx:HBox backgroundColor="#ECECEC" borderColor="#E0E0E0" borderStyle="solid" x="232" y="140" width="200">
+		<mx:Text text="Item 1" />
+		<mx:Text text="Item 2" />
+		<mx:Text text="Item 3" />
+		<mx:Text text="Item 4" />
+	</mx:HBox>
+	
+	<mx:Label x="232" y="184" text="Grid" fontWeight="bold"/>
+	<mx:Grid backgroundColor="#ECECEC" borderColor="#E0E0E0" borderStyle="solid" x="232" y="210" >
+		<mx:GridRow backgroundColor="#DCDCDC">
+			<mx:GridItem>
+				<mx:Text text="" />
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text text="Column 1"  fontWeight="bold"/>
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text text="Column 2"  fontWeight="bold"/>
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text text="Column 3"  fontWeight="bold"/>
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow>
+			<mx:GridItem>
+				<mx:Text text="Row 1"  fontWeight="bold"/>
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text><mx:htmlText>
+					<![CDATA[SOME TEXT<br/>SOME TEXT<br/>SOME TEXT]]>
+				</mx:htmlText></mx:Text>
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text text="Text" />
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text text="Text" />
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow>
+			<mx:GridItem>
+				<mx:Text text="Row 2"  fontWeight="bold"/>
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text text="Text" />
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text text="Text" />
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text text="Text" />
+			</mx:GridItem>
+		</mx:GridRow>
+		<mx:GridRow>
+			<mx:GridItem>
+				<mx:Text text="Row 3"  fontWeight="bold"/>
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text text="Text" />
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text text="Text" />
+			</mx:GridItem>
+			<mx:GridItem>
+				<mx:Text><mx:htmlText>
+					<![CDATA[SOME TEXT<br/>SOME TEXT<br/>SOME TEXT]]>
+				</mx:htmlText></mx:Text>
+			</mx:GridItem>
+		</mx:GridRow>
+	</mx:Grid>
+
+	<mx:Label x="10" y="114" text="Vertical Box" fontWeight="bold"/>
+	<mx:VBox backgroundColor="#ECECEC" borderColor="#E0E0E0" borderStyle="solid" x="10" y="140" width="200">
+		<mx:Text text="Item 1" />
+		<mx:Text text="Item 2" />
+		<mx:Text width="190"><mx:htmlText>
+			<![CDATA[SOME TEXT SOME TEXT SOME TEXT SOME TEXT SOME TEXT SOME TEXT]]>
+		</mx:htmlText></mx:Text>
+		<mx:Text text="Item 4" />
+		<mx:Text text="Item 5" />
+		<mx:Text text="Item 6"/>
+		<mx:Text text="Item 7" />
+		<mx:Text text="Item 8" />
+	</mx:VBox>
+	
+	<mx:Label x="508" y="114" text="Repeater in VBox" fontWeight="bold"/>
+	<mx:VBox backgroundColor="#ECECEC" borderColor="#E0E0E0" borderStyle="solid" x="508" y="140" width="200">
+		<mx:Repeater id="repeater1" dataProvider="{arrayCollection1}">
+			<mx:Canvas width="100%">
+				<mx:Text text="{repeater1.currentItem.name}" x="24" width="140"/>
+				<mx:Image x="0" y="0" source="images/image1.gif"/>
+			</mx:Canvas>
+		</mx:Repeater>
+	</mx:VBox>
+	
+	<mx:Label x="716" y="114" text="Repeater in VBox (height = 200)" fontWeight="bold"/>
+	<mx:VBox backgroundColor="#ECECEC" borderColor="#E0E0E0" borderStyle="solid" x="716" y="140" width="200" height="200">
+		<mx:Repeater id="repeater2" dataProvider="{arrayCollection2}">
+			<mx:Canvas width="100%" >
+				<mx:Text text="{repeater2.currentItem.name}" x="24" width="140" color="#212121" fontWeight="normal" y="-3" 
+					click="{Alert.show(UIComponent(event.currentTarget).getRepeaterItem().name,'You Clicked')}"
+					buttonMode="true" useHandCursor="true" mouseChildren="false"/>
+				<mx:Text text="Posted January 1st, 2009" x="24" width="140" color="#4D4D4D" fontWeight="normal" y="10" fontSize="9"/>
+				<mx:Image x="0" y="0" source="images/image1.gif"
+					click="{Alert.show(UIComponent(event.currentTarget).getRepeaterItem().name,'You Clicked')}"
+					buttonMode="true" useHandCursor="true" mouseChildren="false"/>
+			</mx:Canvas>
+		</mx:Repeater>
+	</mx:VBox>
+	
+</mx:Application>

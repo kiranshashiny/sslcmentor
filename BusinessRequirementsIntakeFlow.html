@@ -1,0 +1,35 @@
+<html>
+				<head>
+				<script type="text/javascript">
+				function go()
+				{
+
+					location=document.forms[0].intakeflow.value;
+				}
+				</script>
+				</head>
+	<body>
+
+			<h3> <center> Business Requirements Intake Flow Document   </center></h3>
+
+			Please enter the category of Service Request you wish to file:
+
+			<form>
+
+			<select id="intakeflow" size="1" onchange="go()">
+
+			<option value="IPControlIntake.mht" >     IPControl </option>
+			<option value="ServerRefreshIntake.mht"> Server Refresh</option>
+			<option value="StorageAddition.html" >    Storage Addition </option>
+			<option value="StorageRemoval.html"> Storage Removal </option>
+			<option value="P2VMigration.html">   P2V Migration  </option>
+			<option value="RemoveBilling.html">  Remove Billing  </option>
+
+			</select">
+			</form>
+
+
+	</body>
+
+
+</html>

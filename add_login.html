@@ -1,0 +1,37 @@
+<html>
+
+<script type="text/javascript">
+
+function button_pressed () {
+
+	var l_name = document.myname.loginname.value;
+	var l_pwd  = document.myname.loginpasswd.value;
+
+ 	alert ("name " +l_name + " password " + l_pwd );
+
+	if ( l_name == '' ) {
+
+		alert ("the name is blank. Please enter a valid Administrator name" );
+		return;
+
+	}
+
+}
+
+</script>
+<body>
+	<form name="myname"  action="mysql_add_login.php" method="post" >
+
+		<h3> Please Enter the Group Administrator Name and Password. </h3>
+
+		Name : <input type="text"  id="loginname" name="name_val" /> <br>
+		Password: <input type="text"  id="loginpasswd" name="pwd_val" /> <br>
+		<input type="submit" name="Submit" value ="Submit"  onclick="button_pressed()" /> <br>
+
+	</form>
+
+</body>
+
+
+
+</html>

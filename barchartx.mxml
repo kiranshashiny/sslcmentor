@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- charts/BasicBar.mxml -->
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml">
+  <mx:Script><![CDATA[
+     import mx.collections.ArrayCollection;
+     [Bindable]
+     public var expenses:ArrayCollection = new ArrayCollection([
+        {Month:"Jan", Profit:2000, Expenses:1500},
+        {Month:"Feb", Profit:1000, Expenses:200},
+        {Month:"Mar", Profit:1500, Expenses:500}
+     ]);
+  ]]></mx:Script>
+
+
+  <mx:Panel title="Bar Chart">
+     <mx:BarChart id="myChart" dataProvider="{expenses}" showDataTips="true">
+        <mx:verticalAxis>
+           <mx:CategoryAxis 
+                dataProvider="{expenses}" 
+                categoryField="Month"
+           />
+        </mx:verticalAxis>
+        <mx:series>
+           <mx:BarSeries 
+                yField="Month" 
+                xField="Profit" 
+                displayName="Profit"
+           />
+           <mx:BarSeries 
+                yField="Month" 
+                xField="Expenses" 
+                displayName="Expenses"
+           />
+        </mx:series>
+     </mx:BarChart>
+     <mx:Legend dataProvider="{myChart}"/>
+  </mx:Panel>
+</mx:Application>

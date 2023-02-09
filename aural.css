@@ -1,0 +1,10 @@
+
+<!-- Paste this code into the CSS section of your HTML document  -->
+
+input.button {
+  color: #fff; background: #0034D0;
+  font-size: .8em;
+  font-weight:bold;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  border: solid 1px #ffcf31;
+}

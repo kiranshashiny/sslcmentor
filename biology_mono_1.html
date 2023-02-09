@@ -1,0 +1,259 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Personal Profile</title>
+<link rel="stylesheet" type="text/css" href="/css/sslcmentor.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<script type='text/javascript'>
+var idx = 1;
+var correct_count = 0;
+function regenerate() { 
+
+  alert ("Inside Regenerate" );
+
+	alert ( arr.length );
+ 
+}
+function stats() { 
+
+	alert (" total questions"+arr.length );
+
+
+}
+function reset_radio_btn() { 
+
+	// alert ("in the reset btn");
+
+	for ( var i=0; i< r1.length;  i++ ) {
+
+		if ( r1[i].checked ) {
+			//  alert ("this button is checked" );
+			r1[i].checked=0;
+		}
+	}
+
+}
+function print_percentage ( count) 
+{
+
+
+		var percentage = Math.round( ( ( count / idx ) * 100), 2);		
+
+	  
+	  document.getElementById('score').value =  percentage+" %";
+
+
+		return;
+
+}
+function check_answer() { 
+
+	found_it = 0;
+
+	for ( var i=0; i< r1.length;  i++ ) {
+
+		if ( r1[i].checked ) {
+			found_it = r1[i].value;
+			user_idx = i;
+			
+			break;
+		}
+	}
+	if ( found_it == 0 ) {
+
+		alert ("You have not chosen an answer. Please select your answer before checking.");
+
+		return 0;
+
+	}
+
+	if ( user_idx == arr[idx].ans ) {
+
+		alert ("Good ! Correct Answer");
+
+		correct_count++;
+
+		print_percentage ( correct_count );
+
+	} else {
+
+		alert (" Incorrect Answer! ");
+		print_percentage ( correct_count );
+
+	}
+	return 1;
+
+}
+function onload_function () {
+
+	idx = 1;
+
+	document.getElementById("h1id").innerHTML = "Q"+idx+": "+arr[idx].str;
+
+	document.getElementById('Answer1').firstChild.nodeValue = arr[idx].answers[0];
+	document.getElementById('Answer2').firstChild.nodeValue = arr[idx].answers[1];
+	document.getElementById('Answer3').firstChild.nodeValue = arr[idx].answers[2];
+	document.getElementById('Answer4').firstChild.nodeValue = arr[idx].answers[3];
+
+	reset_radio_btn();
+	
+	document.getElementById('score').value =  0;
+	
+}
+function shuffle( skip_option ) { 
+
+
+	if ( skip_option == 0 ) {
+	var res = check_answer ();
+
+	if ( res == 0 ) {
+		return;
+
+	}
+	}
+
+	idx = idx + 1;
+
+	// alert (arr.length);
+
+	if ( idx >= arr.length ) {
+		idx = 1;
+	}
+
+	document.getElementById("h1id").innerHTML = "Q"+idx+": "+arr[idx].str;
+
+	document.getElementById('Answer1').firstChild.nodeValue = arr[idx].answers[0];
+	document.getElementById('Answer2').firstChild.nodeValue = arr[idx].answers[1];
+	document.getElementById('Answer3').firstChild.nodeValue = arr[idx].answers[2];
+	document.getElementById('Answer4').firstChild.nodeValue = arr[idx].answers[3];
+
+	reset_radio_btn();
+	
+}
+var  arr = new Array;
+	 arr[1]        =  new Object ();
+	 arr[1].str    =  "The number of Cranial & Spinal nerves included in peripheral nervous system is... ";
+	 arr[1].ans    =  1;
+	 arr[1].answers    =  new Array;
+	 arr[1].answers[0] = " 10 & 32 ";
+	 arr[1].answers[1] = " 12 & 31";
+	 arr[1].answers[2] = " 11 & 32";
+	 arr[1].answers[3] = " 12 & 30 ";
+
+	 arr[2]        =  new Object ();
+	 arr[2].str    =  "The type of image of the object formed on the retina is ";
+	 arr[2].ans    =  0;
+	 arr[2].answers    =  new Array;
+	 arr[2].answers[0] = "Inverted";
+	 arr[2].answers[1] = " Erect";
+	 arr[2].answers[2] = " Inverted or Erect";
+	 arr[2].answers[3] = " Inverted & Erect ";
+
+	 arr[3]        =  new Object ();
+	 arr[3].str    =  "The outer-most white layer of the eyeball is called ";
+	 arr[3].ans    =  3;
+	 arr[3].answers    =  new Array;
+	 arr[3].answers[0] = "Pupil";
+	 arr[3].answers[1] = "Cornea";
+	 arr[3].answers[2] = "Iris";
+	 arr[3].answers[3] = "Sciera ";
+
+	 arr[4]        =  new Object ();
+	 arr[4].str    =  "The function which is not regulated hypothalamus is ";
+	 arr[4].ans    =  1;
+	 arr[4].answers    =  new Array;
+	 arr[4].answers[0] = "Body Temperature";
+	 arr[4].answers[1] = " Mastication";
+	 arr[4].answers[2] = " Sleep";
+	 arr[4].answers[3] = " Appetite ";
+
+	 arr[5]        =  new Object ();
+	 arr[5].str    =  "This is responsible for the color of eyes";
+	 arr[5].ans    =  0;
+	 arr[5].answers    =  new Array;
+	 arr[5].answers[0] = "Iris";
+	 arr[5].answers[1] = "Pupil";
+	 arr[5].answers[2] = "Retina";
+	 arr[5].answers[3] = "Sclera ";
+
+	 arr[6]        =  new Object ();
+	 arr[6].str    =  "All the spine nerves are  ";
+	 arr[6].ans    =  2;
+	 arr[6].answers    =  new Array;
+	 arr[6].answers[0] = " Sensory nerves";
+	 arr[6].answers[1] = " Motor nerves";
+	 arr[6].answers[2] = " Mixed Nerves";
+	 arr[6].answers[3] = " Sensory or Motor Nerves ";
+
+	 arr[7]        =  new Object ();
+	 arr[7].str    =  "The organ that receives the stimulus from the objects around us is ";
+	 arr[7].ans    =  0;
+	 arr[7].answers    =  new Array;
+	 arr[7].answers[0] = " Sense Organ";
+	 arr[7].answers[1] = " Effector";
+	 arr[7].answers[2] = " Conductor";
+	 arr[7].answers[3] = " Brain ";
+
+	 arr[8]        =  new Object ();
+	 arr[8].str    =  "We can move our eye up and down and in various the ear drum, This is because eyeball is held pairs of muscles ";
+	 arr[8].ans    =  2;
+	 arr[8].answers    =  new Array;
+	 arr[8].answers[0] = " Four";
+	 arr[8].answers[1] = " Two";
+	 arr[8].answers[2] = " Three ";
+	 arr[8].answers[3] = "Five ";
+
+	 arr[9]        =  new Object ();
+	 arr[9].str    =  "The Neuron that conducts the impulse from the receptor to the Spinal cord is....  ";
+	 arr[9].ans    =  1;
+	 arr[9].answers    =  new Array;
+	 arr[9].answers[0] = "Motor";
+	 arr[9].answers[1] = " Sensory";
+	 arr[9].answers[2] = " Mixed ";
+	 arr[9].answers[3] = "Ganglia ";
+
+	 arr[10]        =  new Object ();
+	 arr[10].str    =  "These are independent of the brain ";
+	 arr[10].ans    =  1;
+	 arr[10].answers    =  new Array;
+	 arr[10].answers[0] = "Enzyme Secretions";
+	 arr[10].answers[1] = " Reflex actions";
+	 arr[10].answers[2] = " Facial Expressions";
+	 arr[10].answers[3] = " Movements of Digestive Tract. ";
+
+function show_answer () 
+{
+
+  
+	// alert ( "The Correct Answer Index "+arr[idx].ans  );
+	alert ( "The Correct Answer is "+arr[idx].answers[  arr[idx].ans] );
+
+}
+</script>
+<body onload="onload_function()">
+<h4  id="h1id">  The number of Cranial & Spinal nerves included in peripheral nervous system is...                    </h4>	
+<input type="radio" name="r1"    />
+<label for="r1" id="Answer1"    > 10 & 32  </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r2" id="Answer2"    > 12 & 31 </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r3" id="Answer3"    > 11 & 32 </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r4" id="Answer4"    > 12 & 30  </label> 
+<br>
+<br>
+ <input type="button" name="Check" value="Check Answer"  onclick="check_answer()"/>
+ <input type="button" name="Show"  value="Show Answer"   onclick="show_answer()"/>
+ <input type="button" name="Next"  value="Next" onclick="shuffle(1)"/><br>
+</body>
+</html>

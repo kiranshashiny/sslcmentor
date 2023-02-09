@@ -1,0 +1,150 @@
+<html>
+<head>
+<title>Test Objective Questions </title>
+
+<style type="text/css">
+<!--
+
+.cenx {text-align: center;}
+.wfd {width: 100%}
+
+img {padding: 24pt;}
+body {background-color: #cccccc; padding: 2%; font-family: Arial, sans-serif;}
+
+-->
+</style>
+
+<script type="text/javascript">
+
+   var  arr = new Array;
+	 arr[0]        =  new Object ();
+	 arr[0].str    =  "The American War of Independence took place in....  ";
+	 arr[0].ans    =  0;
+	 arr[0].answers    =  new Array;
+	 arr[0].answers[0] = "  1773 ";
+	 arr[0].answers[1] = " 1776";
+	 arr[0].answers[2] = "  1789";
+	 arr[0].answers[3] = " 1790  ";
+
+	 arr[2]        =  new Object ();
+	 arr[2].str    =  "Apartheid ended in South Africa in  ";
+	 arr[2].ans    =  2;
+	 arr[2].answers    =  new Array;
+	 arr[2].answers[0] = "  1991";
+	 arr[2].answers[1] = "  1992";
+	 arr[2].answers[2] = "  1993";
+	 arr[2].answers[3] = "  1994  ";
+
+	 arr[3]        =  new Object ();
+	 arr[3].str    =  "Who is known as Gandhi of America ";
+	 arr[3].ans    =  3;
+	 arr[3].answers    =  new Array;
+	 arr[3].answers[0] = "Khan Abdul Ghaffar Khan";
+	 arr[3].answers[1] = "Nelson Mandela ";
+	 arr[3].answers[2] = "Martin Luther King";
+	 arr[3].answers[3] = "FW Clark ";
+
+	 arr[1]        =  new Object ();
+	 arr[1].str    =  "George Bush and ...  signed an agreement in 2002 to reduce.... ";
+	 arr[1].ans    =  0;
+	 arr[1].answers    =  new Array;
+	 arr[1].answers[0] = " Kosygin";
+	 arr[1].answers[1] = "  Putin";
+	 arr[1].answers[2] = " Yeltsin";
+	 arr[1].answers[3] = "  Gorbachev  ";
+
+
+
+function myfunc() 
+{
+
+ var xax = [document.forms.vote.appr1c, document.forms.vote.appr2c, document.forms.vote.appr3c, document.forms.vote.appr4c];
+ var sum, grp, x, y;
+ var acc = Array(3);
+
+ sum = 0;
+
+  for (y = 0; y < xax.length; y++){
+		grp = xax[y];
+
+		//alert ( "Correct answer is " + arr[y].ans);
+
+		
+		for ( x = 0; x< 4; x++ ) {
+		  if (grp[x].checked ){
+				blk_num = y+1;
+				alert ( "testing" + arr[x].ans );
+				if ( arr[x].ans == arr[y].ans ) {
+				  alert (" x = "+x + " y = "+y );
+					
+					alert (  " Block   " + blk_num + " Correct Answer " );
+				} else {
+					alert (  " Block   " + blk_num + " InCorrect Answer " );
+				}
+      };
+    };
+  };
+
+};
+
+function sumitup(){
+ var xax = [document.forms.vote.appr1c, document.forms.vote.appr2c, document.forms.vote.appr3c, document.forms.vote.appr4c];
+ var sum, grp, x, y;
+ var acc = Array(3);
+
+ sum = 0;
+ for(x = 0; x < 3; x++){
+  acc[x] = 0;
+  for(y = 0; y < xax.length; y++){
+   grp = xax[y];
+   if(grp[x].checked){
+    sum = sum + 1;
+    acc[x] = acc[x] + 1;
+   };
+  };
+ };
+ alert('A: ' + acc[0] + ', B: ' + acc[1] + ', C: ' + acc[2] + ', TOTAL: ' + sum);
+};
+
+</script>
+
+</head>
+<body>
+
+<form name="vote" id="vote" action="none">
+ <p><fieldset>
+  <legend>Block 1</legend>
+  <input type="radio" name="appr1c" value="yes" />A
+  <input type="radio" name="appr1c" value="yes" />B
+  <input type="radio" name="appr1c" value="yes" />C
+  <input type="radio" name="appr1c" value="yes" />D
+ </fieldset></p>
+
+ <p><fieldset>
+  <legend>Block 2</legend>
+  <input type="radio" name="appr2c" value="yes" />A
+  <input type="radio" name="appr2c" value="yes" />B
+  <input type="radio" name="appr2c" value="yes" />C
+  <input type="radio" name="appr2c" value="yes" />D
+ </fieldset></p>
+
+ <p><fieldset>
+  <legend>Block 3</legend>
+  <input type="radio" name="appr3c" value="yes" />A
+  <input type="radio" name="appr3c" value="yes" />B
+  <input type="radio" name="appr3c" value="yes" />C
+  <input type="radio" name="appr3c" value="yes" />D
+ </fieldset></p>
+
+ <p><fieldset>
+  <legend>Block 4</legend>
+  <input type="radio" name="appr4c" value="yes" />A
+  <input type="radio" name="appr4c" value="yes" />B
+  <input type="radio" name="appr4c" value="yes" />C
+  <input type="radio" name="appr4c" value="yes" />D
+ </fieldset></p>
+
+ <input type="button" id="startx" name="startx" value="GO" onclick="javascript:myfunc()" />
+</form>
+</body>
+</html>
