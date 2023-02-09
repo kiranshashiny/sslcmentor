@@ -1,0 +1,22 @@
+#navigation {
+
+
+	position:absolute;
+	z-index :10;
+	width : 210px;
+	height : 600px;
+	margin : 0;
+	margin-top: 50px;
+	border-right : 1px solid #C6EC8C
+	font-weight : normal;
+
+}
+
+#centerDoc {
+
+	position : absolute;
+	z-index  : 15;
+	padding : 0 0 20px 235px;
+	margin-top : 50px
+
+}

@@ -1,0 +1,20 @@
+<?php
+
+	mysql_connect("localhost", "root", "root" ) or die (mysql_error() );
+
+	mysql_select_db ( "medical" ) or die (mysql_error() );
+
+	// Create a Mysql table in the database.
+
+	mysql_query ( "CREATE TABLE mainlogin ( id INT NOT NULL AUTO_INCREMENT,
+
+			PRIMARY KEY(id),
+			name VARCHAR ( 30),
+			password VARCHAR ( 30)) " )
+
+		or die (mysql_error ());
+
+	echo "Table Created";
+
+
+?>

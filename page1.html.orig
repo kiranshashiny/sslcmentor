@@ -1,0 +1,25 @@
+<html>
+
+<head>
+	<link href="design.css" rel="stylesheet" type="text/css" />
+		
+
+
+
+</head>
+
+
+
+<body>
+<h1>My Homepage</h1>
+<ol id="toc">
+    <li class="current"><a href="page1.html">Page 1</a></li>
+    <li><a href="page2.html">Page 2</a></li>
+    <li><a href="page3.html">Page 3</a></li>
+</ol>
+<div class="content">
+    <h2>Page 1</h2>
+    <p>Text...</p>
+</div>
+</body>
+</html>

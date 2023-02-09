@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>| mikezilla | Multiple fixed width columns using CSS | by Mike Golding</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+	<!--
+	AUTHOR: MIKE GOLDING
+	SOURCE: www.mikezilla.com
+	EXAMPLE: Multiple fixed width columns using CSS
+	DESCRIPTION: Any number of fixed width columns using CSS layouts
+	INFO: 
+	-->
+
+<script language="JavaScript">
+<!--
+
+function SymError()
+{
+  return true;
+}
+
+window.onerror = SymError;
+
+//-->
+</script>
+
+<script type="text/javascript" src="mikezilla.js"></script>
+<!-- <link rel="stylesheet" type="text/css" media="screen" title="" href="mikezilla-exp.css" /> -->
+
+<style type="text/css" media="all">
+body{
+	margin:0;
+	padding:0;
+	background-color:#6E7B56;
+	font-family:verdana, arial, san-serif;
+	font-size:70%;
+}
+
+img{
+	border:0;
+}
+
+a{
+	text-decoration:none;
+	color:#003399;
+}
+
+a:hover{
+	text-decoration:underline;
+	color:#ff3300;
+}
+</style>
+
+</head>
+
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- HEADER -->
+
+
+<style type="text/css">
+#container{
+	width:950px;
+	height:700px;
+	background-color: white;
+	padding:0;
+	margin:0;
+}
+
+#header{
+	/* IE ONLY Gradient filter, just for fun! */
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#6E7B56', endColorStr='#2B2E21', gradientType='1');
+	top:0;
+	height:100px;
+	background-color: #2B2E21;
+	clear:both;	
+}
+
+#header ul{
+	float:right;
+	margin:0;
+	padding:0;
+	height:2em;
+	padding-top:3px;
+}
+
+#header ul li{
+	display: inline;
+	margin-top:5px;
+	color:white;
+}
+
+#header ul li a{
+	color:white;
+	text-decoration:none;
+	margin:1px;
+	padding:1px;
+	border: solid 1px #2B2E21;
+}
+
+#header ul li a:hover{
+	border: solid 1px white;
+	background: #545E42;
+	text-decoration:none;
+}
+
+#header p{
+float:left;
+margin:0;
+}
+
+#header h1{
+clear:both;
+margin:0;
+}
+
+</style>
+
+<div id="container">
+
+<div id="header">
+<p>#header</p>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla Home</a></li>
+	</ul>
+<h1>Multiple fixed width columns using CSS</h1>
+<p>[ie, gecko]</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- LEFT COLUMN (ADS) -->
+
+<style type="text/css">
+#left_column{
+	border-right:1px solid #999;
+	background-color:#aaa;
+	height:687px;
+	width:160px;
+	float:left;
+}
+</style>
+
+<div id="left_column">
+<p>#left_column</p>
+<div id="sponsoredlinks">
+<script type="text/javascript"><!--
+google_ad_client = "pub-2302779632652146";
+google_ad_width = 120;
+google_ad_height = 600;
+google_ad_format = "120x600_as";
+google_color_border = "cccccc";
+google_color_bg = "AAAAAA";
+google_color_link = "99CC33	";
+google_color_url = "006633";
+google_color_text = "000000";
+//--></script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- MAIN CONTENT -->
+
+<style type="text/css">
+#main_content{
+	background-color:#f1f1f1;
+	margin:0;
+	padding:0;
+	height:180px;
+
+}
+
+#main_content p{
+	margin: 0 0 15px 0;
+}
+
+
+
+
+</style>
+
+<div id="main_content">
+	<p>#main_content</p>
+	<p>This example shows how to layout multiple columns side by side using CSS.</p>
+	<p>The challenge is to have multiple columns inside the rest of the layout which are quite often used for displaying links to content.</p>
+	<p>This is achieved here using a pure CSS layout using fixed width containers and columns. (see the 4 columns below)</p>
+	<p>View the source to see the code, for ease of use all CSS is included in-line and all styles are included directly above each corresponding block of HTML.</p>
+</div>
+
+
+
+
+
+
+<!-- LINKS COLUMNS -->
+
+<style type="text/css">
+
+#main_links {
+	margin:7px 0 0 0;
+	background-color:white;
+	height:500px;
+}
+
+#main_links ul{
+	margin:0 0 10px 0;
+	padding:0 0 0 1px;
+}
+
+#main_links li{
+	margin:0 0 5px 0px;
+	list-style-type:none;
+	padding:0 0 0 7px;
+}
+
+#main_links h1{
+	margin:0 0 10px 5px;
+	color:#6E7B56;
+	font:bold 14px verdana,arial;
+}
+
+#main_links h2{
+	margin:0 0 10px 5px;
+	color:#aaa;
+	font:bold 13px tahoma;
+}
+
+
+.row{
+
+} 
+
+.col1{
+float:left;
+background-color:white;
+Xpadding:0 15px 25px 10px;
+width:220px;
+}
+
+.col2{
+background-color:#ddd;
+float:left;
+width:200px;
+height:500px;
+}
+
+
+.col3{
+background-color:#eee;
+float:left;
+width:180px;
+height:500px;
+}
+
+.col4{
+background-color:white;
+float:left;
+width:150px;
+}
+
+
+</style>
+
+
+
+<div id="main_links">
+<div class="row">
+
+
+<div class="col1">
+	<h1>Column 1 Links</h1>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+	</ul>
+
+	<h1>Column 1 Links 2</h1>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+	</ul>
+</div>
+
+
+<div class="col2">
+	<h1>Column 2 section 1</h1>
+	<h2>JavaScript</h2>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+	</ul>
+
+	<h2>CSS</h2>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+	</ul>
+
+	<h1>Column 2 section 2</h1>
+	<h2>HTML</h2>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+	</ul>
+
+	<h2>XHTML</h2>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+	</ul>
+
+	<h1>Column 2 section 3</h1>
+	<h2>etc...</h2>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+	</ul>
+</div>
+
+
+
+<div class="col3">
+	<h1>Column 3 Links</h1>
+	<h2>Examples</h2>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+	</ul>
+
+	<h2>Experiments</h2>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+	</ul>
+		
+	<h2>Code</h2>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+	</ul>
+</div>
+
+<div class="col4">
+	<h1>Column 4 Links</h1>
+	<h2>Other Examples...</h2>
+	<ul>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+		<li><a href="http://www.mikezilla.com">Mikezilla.com</a></li>
+	</ul>
+</div>
+
+</div> <!-- END row -->
+
+</div> <!-- END main_links -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+<style type="text/css">
+#footer{
+	/* IE ONLY Gradient filter, just for fun! */
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr='#6E7B56', endColorStr='#2B2E21', gradientType='1');
+	background-color:#2B2E21;
+	height:40px;
+	margin:0;
+	padding:0;
+}
+#footer p{margin:0;}
+</style>
+<div id="footer">
+	<p>#footer</p>
+	<p>&copy; <a href="http://www.notestips.com">Mike</a> <a href="http://www.mgolding.com">Golding</a> 2003 [11/10/2004]</p>
+</div>
+
+
+</div> <!-- END container -->
+
+</body>
+</html>

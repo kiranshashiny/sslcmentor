@@ -1,0 +1,61 @@
+
+
+<html>
+
+
+<h3> Upload Resumes. </h3>
+
+
+<form action="uploader.php" method="POST" >
+
+	<h3>  Candidate Information : </h3>
+	Name :      <input type="text" name="c_name" >  &nbsp; &nbsp;  &nbsp; &nbsp;
+	Phone :     <input type="text" name="c_phone">  
+
+	<hr>
+
+	<br>
+	<br>
+	<h3>  Recruiter Information : </h3>
+
+	Recruiter : <input type="text" name="r_name" >  &nbsp; &nbsp;
+	Phone :     <input type="text" name="r_phone">  
+
+	Date :      <input type="text" name="date_val" >
+
+	<hr>
+	
+	<br>
+
+	Resume Category:
+	<select name="category" onchange="showCD(this.value)">
+		<option value="Scouting Engineer">Scouting Engineer </option>
+		<option value="Solutioning Engineer">Solutioining Engineer</option>
+		<option value="Unix Architect">Unix Architect</option>
+		<option value="Windows Architect">Windows Architect</option>
+		<option value="Network Architect">Network Architect</option>
+		<option value="Trainee">Trainee</option>
+	</select>
+
+	<br>
+	<br>
+
+	
+	Keywords     &nbsp &nbsp &nbsp &nbsp  <input type="text" name="keywords" >
+
+	<br>
+	<br>
+	
+	<input type="hidden" name="MAX_FILE_SIZE" value="300000" /> 
+	<label for="file"> Upload Resume   </label>
+	<input type="file" name="file" id="file" /> 
+
+	<br>	
+	<br>	
+	<input type="submit" name="submit" value="Upload File">
+
+</form>
+
+
+
+</html>
