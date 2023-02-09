@@ -1,0 +1,259 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Personal Profile</title>
+<link rel="stylesheet" type="text/css" href="/css/sslcmentor.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<script type='text/javascript'>
+var idx = 1;
+var correct_count = 0;
+function regenerate() { 
+
+  alert ("Inside Regenerate" );
+
+	alert ( arr.length );
+ 
+}
+function stats() { 
+
+	alert (" total questions"+arr.length );
+
+
+}
+function reset_radio_btn() { 
+
+	// alert ("in the reset btn");
+
+	for ( var i=0; i< r1.length;  i++ ) {
+
+		if ( r1[i].checked ) {
+			//  alert ("this button is checked" );
+			r1[i].checked=0;
+		}
+	}
+
+}
+function print_percentage ( count) 
+{
+
+
+		var percentage = Math.round( ( ( count / idx ) * 100), 2);		
+
+	  
+	  document.getElementById('score').value =  percentage+" %";
+
+
+		return;
+
+}
+function check_answer() { 
+
+	found_it = 0;
+
+	for ( var i=0; i< r1.length;  i++ ) {
+
+		if ( r1[i].checked ) {
+			found_it = r1[i].value;
+			user_idx = i;
+			
+			break;
+		}
+	}
+	if ( found_it == 0 ) {
+
+		alert ("You have not chosen an answer. Please select your answer before checking.");
+
+		return 0;
+
+	}
+
+	if ( user_idx == arr[idx].ans ) {
+
+		alert ("Good ! Correct Answer");
+
+		correct_count++;
+
+		print_percentage ( correct_count );
+
+	} else {
+
+		alert (" Incorrect Answer! ");
+		print_percentage ( correct_count );
+
+	}
+	return 1;
+
+}
+function onload_function () {
+
+	idx = 1;
+
+	document.getElementById("h1id").innerHTML = "Q"+idx+": "+arr[idx].str;
+
+	document.getElementById('Answer1').firstChild.nodeValue = arr[idx].answers[0];
+	document.getElementById('Answer2').firstChild.nodeValue = arr[idx].answers[1];
+	document.getElementById('Answer3').firstChild.nodeValue = arr[idx].answers[2];
+	document.getElementById('Answer4').firstChild.nodeValue = arr[idx].answers[3];
+
+	reset_radio_btn();
+	
+	document.getElementById('score').value =  0;
+	
+}
+function shuffle( skip_option ) { 
+
+
+	if ( skip_option == 0 ) {
+	var res = check_answer ();
+
+	if ( res == 0 ) {
+		return;
+
+	}
+	}
+
+	idx = idx + 1;
+
+	// alert (arr.length);
+
+	if ( idx >= arr.length ) {
+		idx = 1;
+	}
+
+	document.getElementById("h1id").innerHTML = "Q"+idx+": "+arr[idx].str;
+
+	document.getElementById('Answer1').firstChild.nodeValue = arr[idx].answers[0];
+	document.getElementById('Answer2').firstChild.nodeValue = arr[idx].answers[1];
+	document.getElementById('Answer3').firstChild.nodeValue = arr[idx].answers[2];
+	document.getElementById('Answer4').firstChild.nodeValue = arr[idx].answers[3];
+
+	reset_radio_btn();
+	
+}
+var  arr = new Array;
+	 arr[1]        =  new Object ();
+	 arr[1].str    =  "This is not our export ";
+	 arr[1].ans    =  2;
+	 arr[1].answers    =  new Array;
+	 arr[1].answers[0] = " Tea";
+	 arr[1].answers[1] = " Raw Cotton";
+	 arr[1].answers[2] = " Copper";
+	 arr[1].answers[3] = " Cashew Products ";
+
+	 arr[2]        =  new Object ();
+	 arr[2].str    =  "Domestic trade is not carried on in ";
+	 arr[2].ans    =  3;
+	 arr[2].answers    =  new Array;
+	 arr[2].answers[0] = "Villages";
+	 arr[2].answers[1] = "Weekly bazaars";
+	 arr[2].answers[2] = "Small Towns ";
+	 arr[2].answers[3] = "Foreign Countries";
+
+	 arr[3]        =  new Object ();
+	 arr[3].str    =  "Barter system means exchange of.... ";
+	 arr[3].ans    =  0;
+	 arr[3].answers    =  new Array;
+	 arr[3].answers[0] = "Goods to goods";
+	 arr[3].answers[1] = "Money to Money ";
+	 arr[3].answers[2] = "Money to Goods";
+	 arr[3].answers[3] = "Goods to Money  ";
+
+	 arr[4]        =  new Object ();
+	 arr[4].str    =  "This is not a main item of our import ";
+	 arr[4].ans    =  3;
+	 arr[4].answers    =  new Array;
+	 arr[4].answers[0] = " Petroleum";
+	 arr[4].answers[1] = " Consumer goods";
+	 arr[4].answers[2] = " Medicines ";
+	 arr[4].answers[3] = " Rice  ";
+
+	 arr[5]        =  new Object ();
+	 arr[5].str    =  "Raw jute is imported from.... ";
+	 arr[5].ans    =  0;
+	 arr[5].answers    =  new Array;
+	 arr[5].answers[0] = " Bangladesh";
+	 arr[5].answers[1] = " Egypt";
+	 arr[5].answers[2] = " Indonesia ";
+	 arr[5].answers[3] = "  Kenya  ";
+
+	 arr[6]        =  new Object ();
+	 arr[6].str    =  "Trade refers to of goods ";
+	 arr[6].ans    =  2;
+	 arr[6].answers    =  new Array;
+	 arr[6].answers[0] = "Buying";
+	 arr[6].answers[1] = "Selling";
+	 arr[6].answers[2] = "Buying and Selling";
+	 arr[6].answers[3] = "Exchange";
+
+	 arr[7]        =  new Object ();
+	 arr[7].str    =  "This is not a type of foreign trade ";
+	 arr[7].ans    =  2;
+	 arr[7].answers    =  new Array;
+	 arr[7].answers[0] = "Imports ";
+	 arr[7].answers[1] = "Exports ";
+	 arr[7].answers[2] = "Wholesale ";
+	 arr[7].answers[3] = "Entrepot ";
+
+	 arr[8]        =  new Object ();
+	 arr[8].str    =  "To get a correct picture of foreign trade, we should know... ";
+	 arr[8].ans    =   3;
+	 arr[8].answers    =  new Array;
+	 arr[8].answers[0] = " Export of Visible goods and services";
+	 arr[8].answers[1] = "  Export of Invisible Goods and Services";
+	 arr[8].answers[2] = "  Balance of Trade";
+	 arr[8].answers[3] = "  Balance of Payments  ";
+
+	 arr[9]        =  new Object ();
+	 arr[9].str    =  "What percent of our trade is caned through sea routes ";
+	 arr[9].ans    =  1;
+	 arr[9].answers    =  new Array;
+	 arr[9].answers[0] = " 95";
+	 arr[9].answers[1] = "  90";
+	 arr[9].answers[2] = " 85";
+	 arr[9].answers[3] = " 80  ";
+
+	 arr[10]        =  new Object ();
+	 arr[10].str    =  "This is the oldest export of our country ";
+	 arr[10].ans    =  0;
+	 arr[10].answers    =  new Array;
+	 arr[10].answers[0] = " Spices";
+	 arr[10].answers[1] = " Tobacco";
+	 arr[10].answers[2] = " Tea";
+	 arr[10].answers[3] = " Leather Products ";
+
+function show_answer () 
+{
+
+	alert ( "The Correct Answer Index "+arr[idx].ans );
+
+}
+</script>
+<body onload="onload_function()">
+<h4  id="h1id">  This is not our export                    </h4>	
+<input type="radio" name="r1"    />
+<label for="r1" id="Answer1"    > Tea </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r2" id="Answer2"    > Raw Cotton </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r3" id="Answer3"    > Copper </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r4" id="Answer4"    > Cashew Products  </label> 
+<br>
+<br>
+ <input type="button" name="Check" value="Check Answer"  onclick="check_answer()"/>
+ <input type="button" name="Show"  value="Show Answer"   onclick="show_answer()"/>
+ <input type="button" name="Next"  value="Next Question" onclick="shuffle(0)"/><br>
+ <input type="button" name="Skip"  value="Skip" onclick="shuffle(1)"/><br>
+ <h4>  Score : </h4>  <input type="text" id="score"  size="5" />
+</body>
+</html>

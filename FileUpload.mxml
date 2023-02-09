@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	backgroundColor="#ffffff">
+	
+	<mx:Style source="styles/styles.css" />
+
+	<mx:HRule x="10" y="37" width="90%"/>
+	<mx:Text x="10" y="10" text="Uploading a File" styleName="headerStyle" id="label1"/>
+	
+	<!-- 
+	THIS WILL NOT WORK UNLESS YOU ENTER THE CORRECT PATH TO THE PHP FILE ON YOUR SERVER
+	-->
+	
+	<mx:Script>
+	<![CDATA[
+	
+	// ENTER THE PATH TO THE FILE UPLOAD SCRIPT ON YOUR SERVER
+	// Check the bin-debug folder
+	// You may have to run clean on your project to get it to copy out the php files to the server
+	public var uploadFile:String = "http://ie10ltxphk5zl1s:9999/php/file_upload.php";
+
+	]]>
+	</mx:Script>
+	
+	<mx:Button x="10" y="70" label="Upload" click="{upload()}"/>
+	<mx:Button x="83" y="70" label="Check if php file exists" click="{test()}"/>
+	
+	<mx:Script>
+		<![CDATA[
+		import flash.net.navigateToURL;
+		import flash.events.DataEvent;
+		
+		// we declare the file reference here so it is not destroyed by memory garbage collection
+		public var fileRef:FileReference = new FileReference();
+		// a class that is similar to a HTML form
+		public var request:URLRequest;
+		
+		// opens a browser window for the user to select a file to upload
+		public function upload():void {
+			// listen for the upload events
+			// http://livedocs.adobe.com/flex/3/html/17_Networking_and_communications_7.html
+			fileRef.addEventListener(Event.SELECT, selectHandler);
+			fileRef.addEventListener(Event.OPEN, openHandler);
+			fileRef.addEventListener(ProgressEvent.PROGRESS, progressHandler);
+			fileRef.addEventListener(Event.COMPLETE, completeHandler);
+			fileRef.addEventListener(DataEvent.UPLOAD_COMPLETE_DATA, uploadCompleteHandler);
+			fileRef.addEventListener(SecurityErrorEvent.SECURITY_ERROR, httpSecurityErrorHandler);
+			fileRef.addEventListener(HTTPStatusEvent.HTTP_STATUS, httpErrorHandler);
+			fileRef.addEventListener(IOErrorEvent.IO_ERROR, httpIOErrorHandler);
+			
+			// browse for the file to upload
+			// when user selects a file the select handler is called
+			try {
+		    	var success:Boolean = fileRef.browse();
+			}
+			catch (error:Error) {
+		    	trace("Unable to browse for files.");
+		        textarea1.text = "Unable to browse for files.";
+			}
+		}
+		
+		// checks that the upload php file is where we think it is
+		public function test():void {
+		    request = new URLRequest(uploadFile);
+			navigateToURL(request,"_blank");
+		}
+		
+		// when a file is selected we upload the file to the php file upload script on the server
+		public function selectHandler(event:Event):void {
+		    request = new URLRequest(uploadFile);
+		    try {
+		    	// upload file
+		        fileRef.upload(request);
+		        textarea1.text = "Uploading " + fileRef.name + "...";
+		    }
+		    catch (error:Error) {
+		    	// vague
+		        trace("Unable to upload file.");
+		        textarea1.text += "\nUnable to upload file.";
+		    }
+		}
+		
+		// dispatched during file open. 
+		public function openHandler(event:Event):void {
+		    trace("File opened");
+		    textarea1.text += "\nFile opened";
+		}
+		
+		// dispatched during file upload
+		public function progressHandler(event:ProgressEvent):void {
+		    trace("File upload in progress (" + event.bytesLoaded + " of " + event.bytesTotal + ")");
+		    textarea1.text += "\nFile upload in progress (" + event.bytesLoaded + " of " + event.bytesTotal + ")";
+		}
+		
+		// dispatched when the file has been given to the server script
+		// this event does not receive a response from the server
+		// use DataEvent.UPLOAD_COMPLETE_DATA event as shown in uploadCompleteHandler
+		public function completeHandler(event:Event):void {
+		    trace("File uploaded");
+		    textarea1.text += "\nFile uploaded";
+		}
+		
+		// dispatched when a file upload has completed
+		// this event can contain a response from the server as opposed to the Event.COMPLETE event
+		// the php upload file can send back information if we want it to
+		// the event.data and event.text properties would contain a response if any
+		public function uploadCompleteHandler(event:DataEvent):void {
+		    trace("Information about upload: \n" + String(event.text));
+		    textarea1.text += "\nInformation about upload \n" + event.text as String;
+		}
+		
+		// dispatched when an http error occurs
+		
+		// 404 is can't find file
+		// test the file exists
+		public function httpErrorHandler(event:HTTPStatusEvent):void {
+		    trace("HTTP error occured " + event.status);
+		    textarea1.text += "\nHTTP error occured - " + event.status;
+		}
+		
+		// dispatched when an http io error occurs
+		
+		// Error #2038: File I/O Error. - can't find the php file
+		// DO THE FOLLOWING:
+		// - check that the file name is spelled correctly in the uploadFile variable
+		// - check that the path to the file is correct (click test file exists button)
+		// - make sure you are running a php server locally (google search for MAMP or XAMPP)
+		// - make sure you are publishing to your php server
+		// - make sure you are pointing to the correct path in your local server (preferences > document root)
+		// - manually check the file is on your server
+		public function httpIOErrorHandler(event:IOErrorEvent):void {
+		    trace("HTTP IO error occured - " + event.text);
+		    textarea1.text += "\nHTTP IO error occured - " + event.text;
+		}
+		
+		// dispatched when an http io error occurs
+		
+		// Error #2049: Security sandbox violation means 
+		// your swf and php file are on different servers or directories
+		// make sure the php file is in the same or a subdirectory
+		// or add a cross domain security file to the same directory where the php file is
+		// check http://www.adobe.com/ for the latest documentation on cross domain policy files
+		public function httpSecurityErrorHandler(event:SecurityErrorEvent):void {
+		    trace("HTTP Security error occured - " + event.text);
+		    textarea1.text += "\nHTTP Security error occured - " + event.text;
+		}
+		
+		]]>
+	</mx:Script>
+	
+	<mx:TextArea x="10" y="100" width="90%" height="200" id="textarea1"/>
+
+</mx:Application>

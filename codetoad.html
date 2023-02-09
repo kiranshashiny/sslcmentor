@@ -1,0 +1,39 @@
+<html>
+
+<script language="JavaScript">
+
+var xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+function loadXML(xmlFile) {
+    xmlDoc.async="false";
+    xmlDoc.onreadystatechange=verify;
+    xmlDoc.load(xmlFile);
+}
+
+function verify() { 
+    if(xmlDoc.readyState!=4)
+        return false; 
+}
+
+function traverse(tree) {
+    if(tree.hasChildNodes()) {
+        document.write('<ul><li>');
+        document.write('<b>'+tree.tagName+' : </b>');
+        var nodes=tree.childNodes.length;
+        for(var i=0; i<tree.childNodes.length; i++)
+            traverse(tree.childNodes(i));
+        document.write('</li></ul>');
+    }
+    else
+        document.write(tree.text);
+}
+
+function initTraverse(file) {
+    loadXML(file);
+    var doc=xmlDoc.documentElement;
+    traverse(doc);
+}
+
+initTraverse ( "UnixServers.txt" );
+</script>
+
+</html>

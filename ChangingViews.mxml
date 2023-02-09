@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute"
+	backgroundColor="#ffffff">
+	
+	<mx:Style source="styles/styles.css" />
+
+	<mx:HRule x="10" y="37" width="90%"/>
+	<mx:Text x="10" y="10" text="Changing Views in a ViewStack" styleName="headerStyle" id="label1"/>
+	
+	<mx:CheckBox id="checkbox" x="10" y="68" label="Show Different View in the ViewStack" labelPlacement="left"
+		click="{viewstack1.selectedChild = (checkbox.selected) ? view2 : view1;}"/>
+	
+	<mx:ViewStack x="10" y="141" id="viewstack1" width="400" height="104" borderStyle="solid" borderColor="gray" backgroundColor="#f6f6f6">
+		<mx:Canvas id="view1" label="Name" width="100%" height="100%">
+			<mx:Label text="First Name" x="10" y="24" id="label2"/>
+			<mx:Label text="Last Name" x="10" y="54" id="label4"/>
+			<mx:TextInput x="82" y="22" id="textinput0"/>
+			<mx:TextInput x="82" y="52" id="textinput2"/>
+			<mx:Button id="button3" x="250" y="52" label="Next" click="{viewstack1.selectedChild = view2}"/>
+		</mx:Canvas>
+		<mx:Canvas id="view2" label="Address" width="100%" height="100%">
+			<mx:Label text="Address" x="10" y="24" id="label3"/>
+			<mx:Label text="City" x="10" y="54" id="label5"/>
+			<mx:TextInput x="82" y="22" id="textinput3"/>
+			<mx:TextInput x="82" y="52" id="textinput5"/>
+			<mx:Button id="button4" x="250" y="52" label="Previous" click="{viewstack1.selectedChild = view1}"/>
+		</mx:Canvas>
+	</mx:ViewStack>
+	
+	<mx:TabBar x="10" y="121" dataProvider="viewstack1">
+	</mx:TabBar>
+</mx:Application>

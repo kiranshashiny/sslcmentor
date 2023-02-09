@@ -1,0 +1,9 @@
+.caution h1 {font-family:Verdana, sans-serif; color:red; font-size 20px; }
+
+p, div , h1 { color:#00DDFF; width :80%; }
+
+#header {width :90%; background:white; font-size:20px; color: purple; }
+
+/*   div id="header"    means      #header   */
+
+/*   <p class="caution"> or <h1 class="caution">     .caution { font-.. */ 

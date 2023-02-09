@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	backgroundColor="#ffffff">
+	
+	<mx:Style source="styles/styles.css" />
+
+	<mx:HRule x="10" y="37" width="90%"/>
+	<mx:Text x="10" y="10" text="Downloading a File" styleName="headerStyle" id="label1"/>
+	
+	<mx:Button x="10" y="75" label="Download HTML Component" click="{download()}"/>
+	
+	<mx:Script>
+		<![CDATA[
+			public function download():void {
+				// pass in url to file or php proxy
+				// create a new file reference instance
+				var request:URLRequest = new URLRequest("http://www.drumbeatinsight.com/examples/html/HTMLComponent1.0.0.zip");
+				var fileRef:FileReference = new FileReference();
+				fileRef.download(request);
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

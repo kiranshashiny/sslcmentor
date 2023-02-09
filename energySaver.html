@@ -1,0 +1,319 @@
+<META http-equiv="Content-Script-Type" content="type">
+
+<html><head>
+<allignment></allignment><title>Energy Savings Calcultor</title></head><body bgcolor="BURLYWOOD" template="shaded text box"><center><b><i><font width="100%" bgcolor="blue" color="firebrick" size="6"><i>Energy savings 			calculator</i></font>
+
+<i>		</i></i></b></center>
+
+<i>	<script type="text/javascript">
+
+	
+        function  dis()
+        { 
+          if(document.getElementById("add").name=="Incandescent")
+              
+              document.getElementById("DCLW").value="50"
+ 
+          if(document.getElementById("add").name=="Fluorescent")
+            
+              document.getElementById("DCLW").value="100";
+ 
+          if(document.getElementById("add").name=="CFL")
+ 
+              document.getElementById("DCLW").value="80";
+ 
+        } 
+
+        function cal()
+	{
+  		var i,n1,n2,DCLEC,DCLpeak,DCLoffpeak,LEDEC,LEDpeak,LEDoffpeak,netCost;
+		var DCLtotalEnergyCons,DCLtotalPeakCost,LEDtotalEnergyCons,LEDtotalPeakCost;
+		
+  		var H1=document.getElementById("ptnofhours").value;
+		var H2=document.getElementById("optoffpeaktime").value; 
+  		var n4=document.getElementById("peaktime").value;
+  		var n6=document.getElementById("offpeaktime").value;
+		DCLtotalEnergyCons=0;
+		DCLtotalPeakCost=0;
+		LEDtotalEnergyCons=0;
+		LEDtotalPeakCost=0;
+               
+                     
+		
+                for(i=1;i<=3;i++)
+ 		{
+  
+  			n1=document.getElementById("DCLNL"+i).value;
+                         	
+                        n2=document.getElementById("DCLW"+i).value;
+                          
+                        DCLEC=(((n1*n2)/1000)*H1)+(((n1*n2)/1000)*H2);
+                         
+                        document.getElementById("DCLEC"+i).value=DCLEC.toFixed(2);
+                      
+                        DCLpeak=DCLEC*(n4/100);
+                        document.getElementById("DCLpeak"+i).value=DCLpeak.toFixed(2);
+                            
+			DCLoffpeak=DCLEC*(n6/100);
+                           
+			document.getElementById("DCLoffpeak"+i).value=DCLoffpeak.toFixed(2);
+
+			DCLtotalEnergyCons=DCLtotalEnergyCons+DCLEC;
+                         
+			DCLtotalPeakCost=DCLtotalPeakCost+DCLpeak+DCLoffpeak;
+                         
+
+		} 
+
+		for(i=1;i<=3;i++)
+ 		{
+
+                  n1=document.getElementById("LEDNL"+i).value;
+                               
+		  n2=document.getElementById("LEDW"+i).value;
+                   
+          	  LEDEC=(((n1*n2)/1000)*H1)+(((n1*n2)/1000)*H2);
+		  document.getElementById("LEDEC"+i).value=LEDEC.toFixed(2);
+		
+		  LEDpeak=LEDEC*(n4/100);
+		  document.getElementById("LEDpeak"+i).value=LEDpeak.toFixed(2);
+
+		  LEDoffpeak=LEDEC*(n6/100);
+		  document.getElementById("LEDoffpeak"+i).value=LEDoffpeak.toFixed(2);
+
+	          LEDtotalEnergyCons=LEDtotalEnergyCons+LEDEC;
+                  LEDtotalPeakCost=LEDtotalPeakCost+LEDpeak+LEDoffpeak;
+
+		}
+		document.getElementById("totalEnergyCons1").value=DCLtotalEnergyCons.toFixed(2);
+		document.getElementById("totalEnergyCons2").value=LEDtotalEnergyCons.toFixed(2);
+
+		document.getElementById("totalPeakCost1").value=DCLtotalPeakCost.toFixed(2);
+		document.getElementById("totalPeakCost2").value=LEDtotalPeakCost.toFixed(2);
+
+		document.getElementById("netsavings").value=(DCLtotalEnergyCons-LEDtotalEnergyCons).toFixed(2);
+		netCost=DCLtotalPeakCost-LEDtotalPeakCost;
+		document.getElementById("txt").value=netCost.toFixed(2);
+		
+	} 
+	
+	function clr()
+	{
+		for(i=1;i<=3;i++)
+ 		{
+  	  
+                document.getElementById("DCLNL"+i).value=" ";		
+
+                document.getElementById("DCLW"+i).value=" ";
+                
+                document.getElementById("DCLEC"+i).value=" ";
+  
+  		document.getElementById("DCLpeak"+i).value=" ";
+  
+  		document.getElementById("DCLoffpeak"+i).value=" ";
+
+                }
+                  
+                for(i=1;i<=3;i++)
+                { 
+	        
+                document.getElementById("LEDNL"+i).value=" ";
+
+                document.getElementById("LEDW"+i).value=" ";
+
+                document.getElementById("LEDEC"+i).value=" ";
+  
+		document.getElementById("LEDpeak"+i).value=" ";
+  
+  		document.getElementById("LEDoffpeak"+i).value=" ";
+
+	        }
+		document.getElementById("totalEnergyCons1").value=" ";
+		document.getElementById("totalEnergyCons2").value=" ";
+
+		document.getElementById("totalPeakCost1").value=" ";
+		document.getElementById("totalPeakCost2").value=" ";
+
+		document.getElementById("netsavings").value=" ";
+		document.getElementById("txt").value=" ";
+	}
+	</script>
+ 
+
+
+	<form>	
+              </i><i><br>
+
+   		</i><i><br>
+	</i><table border="1" width="40%">
+		<tbody><tr><td><label><b><font color="maroon"  size="4"><style="background-color:plum"><h>Energy Cost Details</h></font></b></label></td></tr>
+   		<tr><td>Used at Peak Time rate of <colspan="1"> &nbsp &nbsp &nbsp&nbsp<input id="peaktime" size="3" value="5" type="text"> p/kW FOR</colspan="1"><input id="ptnofhours" size="3" value="4" type="text"> hrs</td></tr>
+                <tr><td>Used at Off Peak Time rate of <input id="offpeaktime" size="3" value="0.5" type="text"> p/kW FOR<input id="optoffpeaktime" size="3" value="12" type="text"> hrs</td></tr></tbody></table>
+<i>	<alignment><left>
+		<margin top="20"><font style="" color="#3424e0" size="4.5">
+			<bgcolor="blue">
+		
+		</bgcolor="blue"></font>
+		</margin>
+
+		<br>
+		<br>
+
+	</left></alignment></i><i><br>
+	
+	</i>
+         <table border="0">        
+         <table border="1">
+
+	<tbody><tr><th colspan="7" merge="auto" width="100%" height=""><font color="crimson"><i>Details of Current Luminaire(s)used <style="backgroundcolor=#9966cc"></i></th></tr>
+        <tr><th>Type</th>
+        <th>No. of luminaries</th>
+	<th>Wattage(W)</th>
+	<th>Energy Consumption (kwh)</th>
+	<th>Cost-Peak (£)</th>
+	<th>Cost-Off Peak(£)</th></tr>
+	
+        <tr><th><b><select name="add" id="add" onChange="dis()">
+	<option name="Incandescent" selected="selected">Incandescent</option>
+	<option name="Fluorescent">Fluorescent</option>
+	<option name="CFL">CFL</option></select></b></th>
+        
+	
+        <td><input name="no_of_luminaries1" id="DCLNL1" value="" type="text"></td>
+	<td><input name="wattage1" id="DCLW1" value="" type="text"></td>
+	<td><input name="energy_consumption1" id="DCLEC1" type="text"></td>
+	<td><input name="peak1" id="DCLpeak1" type="text"></td>
+	<td><input name="offpeak1" id="DCLoffpeak1" type="text"></td></tr>
+	
+	<tr><th><b><select name="add" id="add" onChange="dis()">
+	<option name="Incandescent"selected="selected">Incandescent</option>
+	<option name="Fluorescent">Fluorescent</option>
+	<option name="CFL">CFL</option></select></b></th>
+	
+	<td><input name="no_of_luminaries2" id="DCLNL2" value="" type="text"></td>
+	<td><input name="wattage2" id="DCLW2" value="" type="text"></td>
+	<td><input name="energy_consumption2" id="DCLEC2" type="text"></td>
+	<td><input name="peak2" id="DCLpeak2" type="text"></td>
+	<td><input name="offpeak2" id="DCLoffpeak2" type="text"></td></tr>
+	
+        <tr><th><b><select>
+	<option name="Incandescent" selected="selected">Incandescent</option>
+	<option name="Fluorescent">Fluorescent</option>
+	<option name="CFL">CFL</option></select></b></th>
+	
+        <td><input name="no_of_luminaries3" id="DCLNL3" value="" type="text"></td>
+	<td><input name="wattage3" id="DCLW3" value="" type="text"></td>
+        <td><input name="energy_consumption3" id="DCLEC3" type="text"></td>
+	<td><input name="peak3" id="DCLpeak3" type="text"></td>
+	<td><input name="offpeak3" id="DCLoffpeak3" type="text"></td></tr></tbody></table>
+        <br>
+         <br> 
+        
+        <table border="1">
+        <tbody> 
+        <th style="background-color: chocolate;" >  </th>
+        <th style="background-color: LemonChiffon">  </th>
+        <th style="background-color: chocolate;">   </th>
+        <th style="background-color: LemonChiffon">  </th>
+        </tbody>
+
+
+				<td>Total Energy <br> Consumption</td>
+				<td><input name="totalenergyconsumption2" id="totalEnergyCons2" type="text"> kwh</td>
+
+      	<td> Total cost</td> 
+
+        <td><input name="totalpeakcost2" id="totalPeakCost2" type="text">£</h></td>
+
+
+        </table>
+
+        </table>
+
+    <i>	<br />
+	<br>
+	<br>
+	</i><i><br>
+
+    
+	</i>
+        <table>
+        <table border="1">
+
+	<tbody><tr><th colspan="8" merge="auto" width="100%" height=""><i><font color="crimson">Using Ex-or's Equivalent (LED ) Products for each </i></th></tr>
+         <tr><th>Product</th>
+	 <th>No. of luminaries</th>
+	 <th>Wattage(W)</th>
+	 <th>Energy Consumption (kwh)</th>
+	 <th>Cost-Peak (£)</th>
+	 <th>Cost-Off Peak (£)</th></tr>
+
+	<tr><th><b><select>
+	<option selected="selected">Ex-Or xxxxx</option>
+	<option>Ex-Or yyyyy</option>
+        <option>Ex-Or zzzzz</option></select></b></th>
+	<td><input name="no_of_luminaries4" id="LEDNL1" value=" " type="text"></td>
+	<td><input name="wattage4" id="LEDW1" value=" " type="text"></td>
+	<td><input name="energy consumption4" id="LEDEC1" type="text"></td>
+        <td><input id="LEDpeak1" type="text"></td>
+	<td><input id="LEDoffpeak1" type="text"></td></tr>
+
+	<tr><th><b><select>
+	<option selected="selected">Ex-Or xxxxx</option>
+	<option>Ex-Or yyyyy</option>
+        <option>Ex-Or zzzzz</option></select></b></th>
+        <td><input name="no_of_luminaries5" id="LEDNL2" value="" type="text"></td>
+	<td><input name="wattage5" id="LEDW2" value="" type="text"></td>
+	<td><input name="energy consumption" id="LEDEC2" type="text"></td>
+
+	<td><input id="LEDpeak2" type="text"></td>
+	<td><input id="LEDoffpeak2" type="text"></td></tr>
+	
+        <tr><th><b><select>
+	<option selected="selected">Ex-Or xxxxx</option>
+	<option>Ex-Or yyyyy</option>
+        <option>Ex-Or zzzzz</option></select></b></th>
+        <td><input name="no_of_luminaries6" id="LEDNL3" value="" type="text"></td>
+	<td><input name="wattage6" id="LEDW3" value="" type="text"></td>
+	<td><input name="energy consumption" id="LEDEC3" type="text"></td>
+
+	<td><input id="LEDpeak3" type="text"></td>
+	<td><input id="LEDoffpeak3" type="text"></td></tr></tbody></table>
+        <br>
+        <br> 
+
+        
+        <table border="1">
+        <tbody>
+				<th style="background-color: chocolate;" width="30%">Total Energy <br> Consumption</th>
+				<td style="background-color: LemonChiffon ;"><h><input name="totalenergyconsumption2" id="totalEnergyCons2" type="text"> kwh</h></td>
+      	<th style="background-color: chocolate;">Total cost</th> 
+        <td style="background-color: LemonChiffon ;"><h><input name="totalpeakcost2" id="totalPeakCost2" type="text">£</h></td>
+
+	</tbody></table>
+        </table> 
+
+   <i>	<br>
+	<br>
+	
+
+	</i><table border="2">
+
+	
+    
+	<tbody><tr><td></td><th colspan="2" merge="auto" style="background-color:green ;" width="30%" height="">
+        <h>Net Savings</h></th>
+        <td style="background-color:darksalmon;"><input name="netsavings" id="netsavings" type="text"><h><h>kwh  </h></h></td>
+        <th style="background-color:green;" colspan="2" merge="auto" width="30%">
+        <h>Net cost</h></th>
+	<td style="background-color:darksalmon;"><input name="txt" id="txt" type="text"><h>£</h></td></tr>
+	</tbody></table>
+        <br>
+     
+
+
+<i>	<input id="btnCalculte" value="Calculate" onclick="cal()" type="button">
+	<input id="btnClear" value="clear" onclick="clr()" type="button">
+
+</i></form>
+</body></html>

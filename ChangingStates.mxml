@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" 
+	backgroundColor="#ffffff"
+	currentState="basic_search">
+	
+	<mx:Style source="styles/styles.css" />
+	
+	<mx:HRule x="10" y="37" width="90%"/>
+	<mx:Label x="10" y="10" text="Changing States" styleName="headerStyle" id="label1"/>
+
+	<mx:states>
+		<mx:State name="basic_search">
+			<mx:AddChild position="lastChild">
+				<mx:CheckBox id="checkbox1" x="10" y="59" label="Change states" labelPlacement="left"
+					click="{currentState = (checkbox1.selected) ? 'advanced_search' : 'basic_search';}"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:Label id="searchLabel0" x="10" y="104" text="Basic Search"/>
+			</mx:AddChild>
+			<mx:AddChild position="lastChild">
+				<mx:HBox x="10" y="130">
+					<mx:TextInput id="textinput1"/>
+					<mx:Button id="button1" label="Search" />
+				</mx:HBox>
+			</mx:AddChild>
+		</mx:State>
+		<mx:State name="advanced_search" basedOn="basic_search">
+			<mx:AddChild relativeTo="{button1}" position="before">
+				<mx:ComboBox selectedIndex="0">
+					<mx:dataProvider>['All Categories','Books','Movies','Music','Software']</mx:dataProvider>
+				</mx:ComboBox>
+			</mx:AddChild>
+		</mx:State>
+	</mx:states>
+	
+</mx:Application>

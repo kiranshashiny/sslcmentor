@@ -1,0 +1,259 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+<title>Personal Profile</title>
+<link rel="stylesheet" type="text/css" href="/css/sslcmentor.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<script type='text/javascript'>
+var idx = 1;
+var correct_count = 0;
+function regenerate() { 
+
+  alert ("Inside Regenerate" );
+
+	alert ( arr.length );
+ 
+}
+function stats() { 
+
+	alert (" total questions"+arr.length );
+
+
+}
+function reset_radio_btn() { 
+
+	// alert ("in the reset btn");
+
+	for ( var i=0; i< r1.length;  i++ ) {
+
+		if ( r1[i].checked ) {
+			//  alert ("this button is checked" );
+			r1[i].checked=0;
+		}
+	}
+
+}
+function print_percentage ( count) 
+{
+
+
+		var percentage = Math.round( ( ( count / idx ) * 100), 2);		
+
+	  
+	  document.getElementById('score').value =  percentage+" %";
+
+
+		return;
+
+}
+function check_answer() { 
+
+	found_it = 0;
+
+	for ( var i=0; i< r1.length;  i++ ) {
+
+		if ( r1[i].checked ) {
+			found_it = r1[i].value;
+			user_idx = i;
+			
+			break;
+		}
+	}
+	if ( found_it == 0 ) {
+
+		alert ("You have not chosen an answer. Please select your answer before checking.");
+
+		return 0;
+
+	}
+
+	if ( user_idx == arr[idx].ans ) {
+
+		alert ("Good ! Correct Answer");
+
+		correct_count++;
+
+		print_percentage ( correct_count );
+
+	} else {
+
+		alert (" Incorrect Answer! ");
+		print_percentage ( correct_count );
+
+	}
+	return 1;
+
+}
+function onload_function () {
+
+	idx = 1;
+
+	document.getElementById("h1id").innerHTML = "Q"+idx+": "+arr[idx].str;
+
+	document.getElementById('Answer1').firstChild.nodeValue = arr[idx].answers[0];
+	document.getElementById('Answer2').firstChild.nodeValue = arr[idx].answers[1];
+	document.getElementById('Answer3').firstChild.nodeValue = arr[idx].answers[2];
+	document.getElementById('Answer4').firstChild.nodeValue = arr[idx].answers[3];
+
+	reset_radio_btn();
+	
+	document.getElementById('score').value =  0;
+	
+}
+function shuffle( skip_option ) { 
+
+
+	if ( skip_option == 0 ) {
+	var res = check_answer ();
+
+	if ( res == 0 ) {
+		return;
+
+	}
+	}
+
+	idx = idx + 1;
+
+	// alert (arr.length);
+
+	if ( idx >= arr.length ) {
+		idx = 1;
+	}
+
+	document.getElementById("h1id").innerHTML = "Q"+idx+": "+arr[idx].str;
+
+	document.getElementById('Answer1').firstChild.nodeValue = arr[idx].answers[0];
+	document.getElementById('Answer2').firstChild.nodeValue = arr[idx].answers[1];
+	document.getElementById('Answer3').firstChild.nodeValue = arr[idx].answers[2];
+	document.getElementById('Answer4').firstChild.nodeValue = arr[idx].answers[3];
+
+	reset_radio_btn();
+	
+}
+var  arr = new Array;
+	 arr[1]        =  new Object ();
+	 arr[1].str    =  "The American War of Independence took place in....  ";
+	 arr[1].ans    =  0;
+	 arr[1].answers    =  new Array;
+	 arr[1].answers[0] = "  1773 ";
+	 arr[1].answers[1] = " 1776";
+	 arr[1].answers[2] = "  1789";
+	 arr[1].answers[3] = " 1790  ";
+
+	 arr[2]        =  new Object ();
+	 arr[2].str    =  "Apartheid ended in South Africa in  ";
+	 arr[2].ans    =  2;
+	 arr[2].answers    =  new Array;
+	 arr[2].answers[0] = "  1991";
+	 arr[2].answers[1] = "  1992";
+	 arr[2].answers[2] = "  1993";
+	 arr[2].answers[3] = "  1994  ";
+
+	 arr[3]        =  new Object ();
+	 arr[3].str    =  "Who is known as Gandhi of America ";
+	 arr[3].ans    =  2;
+	 arr[3].answers    =  new Array;
+	 arr[3].answers[0] = "  Khan Abdul Ghaffar Khan";
+	 arr[3].answers[1] = "  Nelson Mandela ";
+	 arr[3].answers[2] = " Martin Luther King";
+	 arr[3].answers[3] = " FW Clark ";
+
+	 arr[4]        =  new Object ();
+	 arr[4].str    =  "George Bush and ...  signed an agreement in 2002 to reduce.... ";
+	 arr[4].ans    =  2;
+	 arr[4].answers    =  new Array;
+	 arr[4].answers[0] = " Kosygin";
+	 arr[4].answers[1] = "  Putin";
+	 arr[4].answers[2] = " Yeltsin";
+	 arr[4].answers[3] = "  Gorbachev  ";
+
+	 arr[5]        =  new Object ();
+	 arr[5].str    =  "Space Treaty was signed  in  ";
+	 arr[5].ans    =  2;
+	 arr[5].answers    =  new Array;
+	 arr[5].answers[0] = " 1955";
+	 arr[5].answers[1] = " 1963";
+	 arr[5].answers[2] = " 1967";
+	 arr[5].answers[3] = " 1970  ";
+
+	 arr[6]        =  new Object ();
+	 arr[6].str    =  "The first person to condemn racial discrimination and the practice of slavery was... ";
+	 arr[6].ans    =  0;
+	 arr[6].answers    =  new Array;
+	 arr[6].answers[0] = " Abraham Lincoln";
+	 arr[6].answers[1] = " Mahatma Gandhi";
+	 arr[6].answers[2] = " Nelson Mandela";
+	 arr[6].answers[3] = "  Martin Luther Kind Jr  ";
+
+	 arr[7]        =  new Object ();
+	 arr[7].str    =  "Nelson Mandela had been jailed for. . years. ";
+	 arr[7].ans    =  2;
+	 arr[7].answers    =  new Array;
+	 arr[7].answers[0] = "   22";
+	 arr[7].answers[1] = "  24";
+	 arr[7].answers[2] = " 26";
+	 arr[7].answers[3] = "  28 ";
+
+	 arr[8]        =  new Object ();
+	 arr[8].str    =  "Nuclear Test Ban Treaty was   signed in  ";
+	 arr[8].ans    =  1;
+	 arr[8].answers    =  new Array;
+	 arr[8].answers[0] = "  1955";
+	 arr[8].answers[1] = " 1963";
+	 arr[8].answers[2] = " 1967";
+	 arr[8].answers[3] = "  1970  ";
+
+	 arr[9]        =  new Object ();
+	 arr[9].str    =  "The General Assembly of the U N adopted a resolution to protect human rights in.... ";
+	 arr[9].ans    =  3;
+	 arr[9].answers    =  new Array;
+	 arr[9].answers[0] = " 1945";
+	 arr[9].answers[1] = "  1946";
+	 arr[9].answers[2] = " 1947";
+	 arr[9].answers[3] = " 1948 ";
+
+	 arr[10]        =  new Object ();
+	 arr[10].str    =  "The French Revolution took place in.... ";
+	 arr[10].ans    =  2;
+	 arr[10].answers    =  new Array;
+	 arr[10].answers[0] = "   1773";
+	 arr[10].answers[1] = "  1776";
+	 arr[10].answers[2] = "  1789";
+	 arr[10].answers[3] = " 1790  ";
+
+function show_answer () 
+{
+
+	alert ( "The Correct Answer Index "+arr[idx].ans );
+
+}
+</script>
+<body onload="onload_function()">
+<h4  id="h1id">  The American War of Independence took place in....                     </h4>	
+<input type="radio" name="r1"    />
+<label for="r1" id="Answer1"    >  1773  </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r2" id="Answer2"    > 1776 </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r3" id="Answer3"    >  1789 </label> 
+<br>
+<br>
+<input type="radio" name="r1"    />
+<label for="r4" id="Answer4"    > 1790   </label> 
+<br>
+<br>
+ <input type="button" name="Check" value="Check Answer"  onclick="check_answer()"/>
+ <input type="button" name="Show"  value="Show Answer"   onclick="show_answer()"/>
+ <input type="button" name="Next"  value="Next Question" onclick="shuffle(0)"/><br>
+ <input type="button" name="Skip"  value="Skip" onclick="shuffle(1)"/><br>
+ <h4>  Score : </h4>  <input type="text" id="score"  size="5" />
+</body>
+</html>
